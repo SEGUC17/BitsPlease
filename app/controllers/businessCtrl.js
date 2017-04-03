@@ -1,4 +1,4 @@
-var config = require('config.json');
+var config = require('db');
 var _ = require('lodash');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
@@ -8,7 +8,6 @@ var db = mongo.db(config.connectionString, { native_parser: true });
 db.bind('businesses');
 db.bind('products');
 
-
 var service = {};
 
 service.authenticate = authenticate;
@@ -16,9 +15,44 @@ service.authenticate = authenticate;
 service.create = create;
 // service.update = update;
 // service.delete = _delete;
-// config = require('config'),
+//config = require('db');
 
 module.exports = service;
+
+var mongoose = require ("mongoose");
+
+var products = mongoose.model('products');
+
+module.exports.addproducts = function (req, res){
+    products.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product();
+                product.productName =  req.body.productName;
+                product.picture = req.body.picture;
+                product.productdescription =  req.body.productdescription;
+                prduct.productprice =  req.body.productprice;
+                product.productid =  req.body.productprice;
+                product.save(function(err){
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    res.status(200).json({
+                        "message" : "success"
+                    });
+                }
+           });
+        }
+   })
+}
 
 function authenticate(username, password) {
     var deferred = Q.defer();
