@@ -6,7 +6,7 @@ module.exports = function(app){
 		res.sendFile(__dirname + "/public/index.html");
 	});
 
-	app.post('/register', userCtrl.register);
+	app.post('/signup', userCtrl.register);
 	app.get('/login/:userName/:password', userCtrl.login);
 	
 }
