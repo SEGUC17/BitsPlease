@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(cookieParser());
 
-
 require('./routes')(app);
 
 app.use(function (req, res, next) {

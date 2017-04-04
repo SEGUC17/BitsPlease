@@ -1,6 +1,6 @@
 var db = require('./app/db');
 
-var user = require('./app/models/user')
+//var user = require('./app/models/user')
 
 var app = require('./app/app');
 

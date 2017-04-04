@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
@@ -10,4 +10,4 @@ function searchInDb(cb){
 		cb(null, product);
 	});
 }
-exports.searchInDb = searchInDb; 
+exports.searchInDb = searchInDb;
