@@ -1,12 +1,11 @@
 //var userCtrl = require('./controllers/userCtrl');
-
 	
 module.exports = function(app){
-
 	app.get('/', function(req, res){
-		//res.sendFile(__dirname + "/public/index.html");
+		alert("ana henaa");
+		res.sendFile(__dirname + "../public/searchHTML.html");
 		// res.sendfile('default.html', { root: __dirname + "/public/searchHTML.html" } );
-		res.send('../public/searchHTML.html')
+		//res.send('../public/searchHTML.html')
 		// res.sendFile(__dirname + "../public/searchHTML.html");
 	});
 
@@ -14,3 +13,4 @@ module.exports = function(app){
 	//app.get('/login/:userName/:password', userCtrl.login);
 	
 }	
+
