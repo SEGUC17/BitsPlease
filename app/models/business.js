@@ -2,23 +2,23 @@ var mongoose = require('mongoose');
 
 var businessSchema = new mongoose.Schema({
 
-	userName : {
-		type: String,
-		unique : true,
+	companyName : {
+		type : String,
 		required : true
 	},
 	password : {
-		type: String,
+		type : String,
 		required : true
 	},
 	description : String,
-	companyName : String,
-	email : String
+	email : String,
+	accepted : Boolean,
+	rejected : Boolean
 
 });
 
-userSchema.methods.changePassword = function(oldPassword, newPassword){
-	if(oldPassword !== this.password) throw Error("Incorrect old password");
+businessSchema.methods.changePassword = function(oldPassword, newPassword){
+	if(oldPassword !== this.password) throw Error("Incorrect old password, please try again");
 	else{
 		this.password = newPassword;
 	}
