@@ -2,6 +2,10 @@ var db = require('./app/db');
 
 var user = require('./app/models/user')
 
+var business = require('./app/models/business')
+
+var product = require('./app/models/products')
+
 var app = require('./app/app');
 
 
