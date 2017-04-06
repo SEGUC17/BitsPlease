@@ -1,5 +1,7 @@
-
 var mongoose = require('mongoose');
+
+var mongoose = require("mongoose");
+
 
 var businessSchema = new mongoose.Schema({
 

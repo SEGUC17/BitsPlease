@@ -74,6 +74,7 @@ module.exports = {
 			}
 		});
 	},
+
 	productPetition: function(req,res){
 let tempProduct = new tempProduct(req.body);
 tempProduct.save(function(err, tempProduct){
@@ -89,4 +90,30 @@ tempProduct.save(function(err, tempProduct){
         })
     
 }
+    acceptPlan : function(req,res){
+        Subscription.findById(req.body.SubscriptionID).exec(function(err, plan){
+            if (err){
+                res.status(500).json({
+                    "message": "Error, please try again"
+                });
+            }
+            if (plan){
+                plan.accepted = true;
+                plan.rejected = false;
+                plan.save(function(err){
+                    if(err){
+                        res.status(500).json({
+                            "message": "Error,please try again"
+                        });
+                    }
+                    else{
+                        res.status(200).json({
+                            "message": "Subscription plan accepted"
+                        });
+                    }
+                });
+            }
+        });
+    }
+
 }

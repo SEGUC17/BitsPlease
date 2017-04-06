@@ -55,6 +55,8 @@ module.exports = function(app){
     
     app.post('/shoppingcart/AddtoCart' , shoppingcart.AddtoCart);
 
+    app.post('/user/postrating', userCtrl.postrating);
+
 
 }
 module.exports = router;

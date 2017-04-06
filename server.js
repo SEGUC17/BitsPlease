@@ -38,6 +38,8 @@ var product = require('./app/models/products')
 
 var advertisement = require('./app/models/advertisement')
 
+var rate = require('./app/models/rate')
+
 var app = require('./app/app');
 
 
