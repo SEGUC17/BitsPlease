@@ -40,7 +40,7 @@ module.exports = function(app){
 
 	app.put('/updateproduct',bodyParser, businessCtrl.updateproduct);
         
-        app.get('/getAllProducts',bodyParser, businessCtrl.getAllProducts);
+    app.get('/getAllProducts',bodyParser, businessCtrl.getAllProducts);
 
 }
 module.exports = router;

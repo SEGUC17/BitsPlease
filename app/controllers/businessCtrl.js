@@ -167,7 +167,13 @@ updateproduct : function (req, res){
                 }
            });
 
- getAllProducts:function(req, res){
+ 
+
+}
+}
+},
+let businessCtrl = {
+	getAllProducts:function(req, res){
         
        product.find(function(err, product){
             
@@ -177,11 +183,10 @@ updateproduct : function (req, res){
                 res.render('view', {product});
         })};
 
+}
 
-}
-}
-},
 
-}
+
+
 module.exports=businessCtrl;
 
