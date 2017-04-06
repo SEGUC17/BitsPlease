@@ -1,5 +1,5 @@
-var mongoose = require("mongoose");
 
+var mongoose = require("mongoose");
 var Business = mongoose.model('Business');
 var product = require('../models/products');
 var Advertisement = mongoose.model('Advertisement');
@@ -166,6 +166,17 @@ updateproduct : function (req, res){
 
                 }
            });
+
+ getAllProducts:function(req, res){
+        
+       product.find(function(err, product){
+            
+            if(err)
+                res.send(err.message);
+            else
+                res.render('view', {product});
+        })};
+
 
 }
 }

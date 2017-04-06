@@ -39,6 +39,8 @@ module.exports = function(app){
 	app.post('/addproduct', bodyParser, businessCtrl.addproduct);
 
 	app.put('/updateproduct',bodyParser, businessCtrl.updateproduct);
+        
+        app.get('/getAllProducts',bodyParser, businessCtrl.getAllProducts);
 
 }
 module.exports = router;
