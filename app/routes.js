@@ -1,5 +1,5 @@
 var userCtrl = require('./controllers/userCtrl');
-
+var  bodyParser = require('body-parser').json();
 var businessCtrl = require('./controllers/businessCtrl');
 
 var operatorCtrl = require('./controllers/operatorCtrl');
@@ -37,5 +37,16 @@ module.exports = function(app){
 	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
 
 	app.post('/addproduct', bodyParser, businessCtrl.addproduct);
+
+	app.put('/updateproduct',bodyParser, businessCtrl.updateproduct);
+
 }
 module.exports = router;
+
+
+	
+
+
+
+	
+}

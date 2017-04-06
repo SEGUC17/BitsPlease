@@ -8,15 +8,17 @@ var productSchema = new mongoose.Schema({
 		required : true
 	},
 
-	description : {
+	productdescription : {
 		type : String,
 		required : true
 	},
+
 	productprice : Number,
 	business : mongoose.Schema.ObjectId,
 	picture : String,
 	productid: String,
 	productquantity: String
+
 
 });
 

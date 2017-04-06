@@ -1,13 +1,14 @@
 var mongoose = require("mongoose");
 
 var Business = mongoose.model('Business');
-
+var product = require('../models/products');
 var Advertisement = mongoose.model('Advertisement');
 
-module.exports = {
 
+var bodyParser = require('body-parser').json();
 
-    test : function(req, res){
+let businessCtrl = {
+	    test : function(req, res){
         
         var name = req.params.name;
         res.status(200).json({
@@ -77,17 +78,12 @@ module.exports = {
                     "message" : "404 not found"
                 })
             }
-        });
+         }
+       },
+    let businessCtrl = {
     
-
-var product = require ('../models/product');
-var mongoose = require ("mongoose");
-var bodyParser = require('body-parser').json();
-let businessCtrl = {
-addproduct : function (req, res){
-    //console.log("req.body>>" + req.body);
-    //console.log("req.body>>" + req.body.productName);
-    //console.log("req.body>>" + req.body.productid);
+    addproduct : function (req, res){
+    console.log("req.body>>" + req.body.productName);
     product.findOne({productName : req.body.productName} ,  function(err, products){
         if (err){
             res.status(500).json(err);
@@ -98,25 +94,23 @@ addproduct : function (req, res){
                 });
             }
             else{
-                var Product = new product(req.body);
-                Product.productName =  req.body.productName;
-                Product.picture = req.body.picture;
-                Product.productdescription =  req.body.productdescription;
-                Product.productprice =  req.body.productprice;
-                Product.productid = req.body.productid;
-                Product.productquantity = req.body.productquantity;
+                var product = new product();
+                product.productName =  req.body.productName;
+                product.picture = req.body.picture;
+                product.productdescription =  req.body.productdescription;
+                product.productprice =  req.body.productprice;
+                product.productid = req.body.productid;
+                product.productquantity = req.body.productquantity;
 
 
-                console.log("here is the product" + Product);
-
-
-                Product.save(function(err, Product){
+                
+                product.save(function(err, products){
                 if(err){
                     res.status(500).json(err);
                 }
                 else{
-                    console.log("Product>>" + Product);
-                    console.log("req.body>>" + req.body);
+                    console.log(product);
+                    console.log(req.body);
                     res.status(200).json({
                         "message" : "success"
 
@@ -126,16 +120,57 @@ addproduct : function (req, res){
            });
         }
    })
- },
-
- }
+},
 
 
+updateproduct : function (req, res){
+    var query = {'productName':req.body.productName};
+    req.newData.productName = req.product.productName;
+   
 
+    product.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product(req.body);
+                product.productName =  req.body.productName || product.productName;
+                product.picture = req.body.picture || product.picture;
+                product.productdescription =  req.body.productdescription || product.productdescription;
+                product.productprice =  req.body.productprice || product.productprice;
+                product.productid = req.body.productid || product.productid;
+                product.productquantity = req.body.productquantity || product.productquantity;
+
+
+                console.log("here is the product" + product);
+
+
+                product.update(function(err, product){
+
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+
+                    console.log("Product>>" + Product);
+                    console.log("req.body>>" + req.body);
+                    res.status(200).json({
+                        "message" : "success"
+
+                    });
+
+                }
+           });
+
+}
+}
+},
+
+}
 module.exports=businessCtrl;
 
-}
-
-
-
-}
