@@ -12,6 +12,7 @@
     "method-override": "~2.0.2",
     "mongoose": "^4.4.20",
     "nodemon": "^1.11.0"
+<<<<<<< HEAD
   },
   "scripts": {
     "start": "node server.js"
@@ -28,4 +29,7 @@
     "url": "https://github.com/SEGUC17/BitsPlease/issues"
   },
   "homepage": "https://github.com/SEGUC17/BitsPlease#readme"
+=======
+  }
+>>>>>>> d37ac1189f0dc0f6fc00744d9e58eca92641157d
 }
