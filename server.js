@@ -2,6 +2,14 @@ var db = require('./app/db');
 
 var user = require('./app/models/user')
 
+var business = require('./app/models/business')
+
+var product = require('./app/models/products')
+
+var advertisement = require('./app/models/advertisement')
+
+var rate = require('./app/models/rate')
+
 var app = require('./app/app');
 
 
