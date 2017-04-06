@@ -51,6 +51,10 @@ module.exports = function(app){
 
     app.post('/operator/productPetition', operatorCtrl.productPetition);
 
+    app.post('/shoppingcart/displayShoppingCart', shoppingcart.displayShoppingCart);
+    
+    app.post('/shoppingcart/AddtoCart' , shoppingcart.AddtoCart);
+
 
 }
 module.exports = router;
@@ -134,6 +138,7 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+
 
 	
 
