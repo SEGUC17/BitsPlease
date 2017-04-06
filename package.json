@@ -1,0 +1,26 @@
+{
+  "name": "seProject",
+  "version": "0.0.0",
+  "author": "BitsPlease",
+  "script": {
+    "start" : "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.4.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.5.1",
+    "jade": "~1.11.0",
+    "method-override": "~2.0.2",
+    "mongoose": "~3.8.0",
+    "serve-favicon": "~2.3.0",
+    "braintree": "~1.29.0",
+    "braintree-web": "~2.15.1",
+    "chai": "~3.4.0",
+    "mocha": "~2.3.3",
+    "ejs": "~2.3.4",
+    "morgan": "~1.6.1",
+    "nodemon": "^1.11.0"
+  }
+}
+
