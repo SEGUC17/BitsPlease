@@ -73,5 +73,20 @@ module.exports = {
 				});
 			}
 		});
-	}
+	},
+	productPetition: function(req,res){
+let tempProduct = new tempProduct(req.body);
+tempProduct.save(function(err, tempProduct){
+	if(err){
+		res.send(err.message)
+                console.log(err);
+            }
+            else{
+
+                console.log(tempProduct);
+                res.redirect('/client/productPetition');
+            }
+        })
+    
+}
 }

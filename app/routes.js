@@ -49,9 +49,14 @@ module.exports = function(app){
 
     app.post('/user/writeReview', userCtrl.writeReview);
 
+    app.post('/operator/productPetition', operatorCtrl.productPetition);
+
 
 }
 module.exports = router;
+	
+
+
 
 // app/routes.js
 module.exports = function(app, passport) {

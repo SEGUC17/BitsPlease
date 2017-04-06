@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 var mongoose = require("mongoose");
 var Business = mongoose.model('Business');
 var product = require('../models/products');
