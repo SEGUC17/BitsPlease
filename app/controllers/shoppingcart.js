@@ -1,4 +1,5 @@
 //create array that will hold all ordered products
+let addtocart= {
     var shoppingCart = [];
 
     //this function manipulates DOM and displays content of our shopping cart
@@ -44,3 +45,5 @@
        displayShoppingCart();
 
     }  
+  }
+  module.export= AddtoCart

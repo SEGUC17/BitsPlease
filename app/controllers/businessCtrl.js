@@ -4,6 +4,18 @@ var Business = mongoose.model('Business');
 
 var Advertisement = mongoose.model('Advertisement');
 
+let businessCtrl ={
+addtocart: function (){
+
+
+
+	
+}
+
+
+
+
+}
 module.exports = {
 
 	test : function(req, res){

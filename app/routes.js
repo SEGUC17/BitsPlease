@@ -24,7 +24,8 @@ module.exports = function(app){
 
 	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
 
-
+    app.post('/shoppingcart/displayShoppingCart', shoppingcart.displayShoppingCart);
+    app.post('/shoppingcart/AddtoCart' , shoppingcart.AddtoCart);
 
 	
 }
