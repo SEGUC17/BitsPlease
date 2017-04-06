@@ -1,79 +1,180 @@
-var config = require('config.json');
-var _ = require('lodash');
-var jwt = require('jsonwebtoken');
-var bcrypt = require('bcryptjs');
-var Q = require('q');
-var mongo = require('mongoskin');
-var db = mongo.db(config.connectionString, { native_parser: true });
-db.bind('businesses');
-db.bind('products');
+
+var mongoose = require("mongoose");
+var Business = mongoose.model('Business');
+var product = require('../models/products');
+var Advertisement = mongoose.model('Advertisement');
+
+let businessCtrl = {
+
+	test : function(req, res){
+		
+		var name = req.params.name;
+		res.status(200).json({
+			"message" : "Hi "+name
+		});
+	},
+
+	recieveRequest : function(req, res){
+		var business = new Business();
+		business.companyName = req.body.companyName;
+		business.password = "123456";
+		business.description = req.body.description;
+		business.email = req.body.email;
+		business.accepted = false;
+		business.rejected = false;
+		business.save(function(err){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+			}
+			else{
+				res.status(200).json({
+					"message" : "Request processed"
+				});
+			}
+		});
+	},
+
+	postAd : function(req, res){
+		var ad = new Advertisement();
+		ad.title = req.body.title;
+		ad.description = req.body.description;
+		ad.displayed = false;
+		ad.save(function(err){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+
+			}
+			else{
+				res.status(200).json({
+					"message" : "Ad posted"
+				});
+			}
+		})
 
 
-var service = {};
+	},
 
-service.authenticate = authenticate;
-// service.getById = getById;
-service.create = create;
-// service.update = update;
-// service.delete = _delete;
-// config = require('config'),
+	changePassword : function(req, res){
+		Busisness.findById(req.body.businessID).exec(function(err, business){
+			if(err){
+				res.status(500).json({
+					"message" : "error, please try again"
+				});
+			}
+			if(business){
+				business.password = req.body.newPassword;
+				res.status(200).json({
+					"message" : "password changed"
+				});
+			}
+			else{
+				res.status(404).json({
+					"message" : "404 not found"
+				})
+			}
+		});
+	},
 
-module.exports = service;
+	addproduct : function (req, res){
+    console.log("req.body>>" + req.body.productName);
+    product.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product();
+                product.productName =  req.body.productName;
+                product.picture = req.body.picture;
+                product.productdescription =  req.body.productdescription;
+                product.productprice =  req.body.productprice;
+                product.productid = req.body.productid;
+                product.productquantity = req.body.productquantity;
 
-function authenticate(username, password) {
-    var deferred = Q.defer();
 
-    db.businesses.findOne({ username: username }, function (err, business_id) {
-        if (err) deferred.reject(err.name + ': ' + err.message);
+                
+                product.save(function(err, products){
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    console.log(product);
+                    console.log(req.body);
+                    res.status(200).json({
+                        "message" : "success"
 
-        if (business && bcrypt.compareSync(password, busniess.hash)) {
-            // authentication successful
-            deferred.resolve(jwt.sign({ sub: business_id }, config.secret));
-        } else {
-            // authentication failed
-            deferred.resolve();
+                    });
+
+                }
+           });
         }
-    });
+   })
+},
 
-    return deferred.promise;
-}
+updateproduct : function (req, res){
+    var query = {'productName':req.body.productName};
+    req.newData.productName = req.product.productName;
+   
+    product.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product(req.body);
+                product.productName =  req.body.productName || product.productName;
+                product.picture = req.body.picture || product.picture;
+                product.productdescription =  req.body.productdescription || product.productdescription;
+                product.productprice =  req.body.productprice || product.productprice;
+                product.productid = req.body.productid || product.productid;
+                product.productquantity = req.body.productquantity || product.productquantity;
 
 
-function create(id, productParam) {
-    var deferred = Q.defer();
-        // fields to update
-        var set = {
-            productName: productParam.productName,
-            picture: productParam.picture,
-            productdescription: productParam.productdescription,
-            productprice: productParam.productprice,
-            productid: id
-        };
-        db.products.insert(
-            set,
-            function (err, doc) {
-                if (err) deferred.reject(err.name + ': ' + err.message);
+                console.log("here is the product" + product);
 
-                deferred.resolve();
-            });
 
-    return deferred.promise;
-}
-console.log("done");
+                product.save(function(err, product){
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    console.log("product>>" + product);
+                    console.log("req.body>>" + req.body);
+                    res.status(200).json({
+                        "message" : "success"
 
-function GetAllBybusinessid(id) {
-    var deferred = Q.defer();
+                    });
 
-    db.products.find({ businessid: id }, function (err, products) {
-        if (err) deferred.reject(err.name + ': ' + err.message);
-
-        if (products) {
-            // return business (without hashed password)
-            deferred.resolve(_.omit(products, 'hash'));
-        } else {
-            // business not found
-            deferred.resolve();
+                }
+           });
         }
-    });
-    return deferred.promise;
+   })
+},
+
+ getAllProducts:function(req, res){
+        
+       product.find(function(err, product){
+            
+            if(err)
+                res.send(err.message);
+            else
+                res.render('view', {product});
+        })};
+
+
 }
+
+module.exports=businessCtrl;
+
