@@ -1,10 +1,10 @@
 var mongoose = require("mongoose");
 
 var Business = mongoose.model('Business');
-
+var product = require('../models/products');
 var Advertisement = mongoose.model('Advertisement');
 
-module.exports = {
+let businessCtrl = {
 
 	test : function(req, res){
 		
@@ -77,7 +77,93 @@ module.exports = {
 				})
 			}
 		});
-	}
+	},
 
+	addproduct : function (req, res){
+    console.log("req.body>>" + req.body.productName);
+    product.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product();
+                product.productName =  req.body.productName;
+                product.picture = req.body.picture;
+                product.productdescription =  req.body.productdescription;
+                product.productprice =  req.body.productprice;
+                product.productid = req.body.productid;
+                product.productquantity = req.body.productquantity;
+
+
+                
+                product.save(function(err, products){
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    console.log(product);
+                    console.log(req.body);
+                    res.status(200).json({
+                        "message" : "success"
+
+                    });
+
+                }
+           });
+        }
+   })
+},
+
+updateproduct : function (req, res){
+    var query = {'productName':req.body.productName};
+    req.newData.productName = req.product.productName;
+   
+    product.findOne({productName : req.body.productName} ,  function(err, products){
+        if (err){
+            res.status(500).json(err);
+            }
+            if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product(req.body);
+                product.productName =  req.body.productName || product.productName;
+                product.picture = req.body.picture || product.picture;
+                product.productdescription =  req.body.productdescription || product.productdescription;
+                product.productprice =  req.body.productprice || product.productprice;
+                product.productid = req.body.productid || product.productid;
+                product.productquantity = req.body.productquantity || product.productquantity;
+
+
+                console.log("here is the product" + product);
+
+
+                product.save(function(err, product){
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+                    console.log("product>>" + product);
+                    console.log("req.body>>" + req.body);
+                    res.status(200).json({
+                        "message" : "success"
+
+                    });
+
+                }
+           });
+        }
+   })
+},
 
 }
+
+module.exports=businessCtrl;
+
