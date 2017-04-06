@@ -1,16 +1,19 @@
 {
   "name": "seProject",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "BitsPlease",
   "script": {
     "start" : "nodemon server.js"
   },
   "dependencies": {
-    "body-parser": "~1.4.2",
+    "body-parser": "~1.17.1",
+    "config.json": "0.0.4",
+    "express-session": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "~4.5.1",
     "method-override": "~2.0.2",
-    "mongoose": "~3.8.0",
-    "nodemon": "^1.11.0"
+    "mongoose": "~4.9.3",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7"
   }
 }
