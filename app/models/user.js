@@ -3,11 +3,23 @@ var mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
 
 	userName : {
+<<<<<<< HEAD
+		type: String,
+=======
 		type : String,
+>>>>>>> b16aaf3dd5b6a5d27ac23c8dc97c4d0a9effe61e
 		unique : true,
 		required : true
 	},
 	password : {
+<<<<<<< HEAD
+		type: String,
+		required : true
+	},
+	firstName : String,
+	lastName: String,
+	email: String
+=======
 		type : String,
 		required : true
 	},
@@ -19,6 +31,7 @@ var userSchema = new mongoose.Schema({
 	firstName : String,
 	lastName: String
 
+>>>>>>> b16aaf3dd5b6a5d27ac23c8dc97c4d0a9effe61e
 
 });
 
@@ -31,4 +44,8 @@ userSchema.methods.changePassword = function(oldPassword, newPassword){
 
 
 
+<<<<<<< HEAD
 mongoose.model('User', userSchema);
+=======
+mongoose.model('User', userSchema);
+>>>>>>> b16aaf3dd5b6a5d27ac23c8dc97c4d0a9effe61e
