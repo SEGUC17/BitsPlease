@@ -4,7 +4,7 @@ var businessCtrl = require('./controllers/businessCtrl');
 
 var operatorCtrl = require('./controllers/operatorCtrl');
 
-var business = require('./models/business');
+var product = require('./models/product');
 
 var express = require('express');
 
