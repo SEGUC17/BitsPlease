@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 var mongoose = require("mongoose");
 var Business = mongoose.model('Business');
@@ -189,4 +190,3 @@ let businessCtrl = {
 
 
 module.exports=businessCtrl;
-

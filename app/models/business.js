@@ -19,7 +19,8 @@ var businessSchema = new mongoose.Schema({
 });
 
 businessSchema.methods.changePassword = function(oldPassword, newPassword){
-	if(oldPassword !== this.password) throw Error("Incorrect old password");
+
+	if(oldPassword !== this.password) throw Error("Incorrect old password, please try again");
 
 	else{
 		this.password = newPassword;

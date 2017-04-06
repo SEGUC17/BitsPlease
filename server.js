@@ -32,6 +32,12 @@ var product = require('./app/models/products')
 
 var advertisement = require('./app/models/advertisement')
 
+var business = require('./app/models/business')
+
+var product = require('./app/models/products')
+
+var advertisement = require('./app/models/advertisement')
+
 var app = require('./app/app');
 
 

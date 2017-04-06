@@ -16,6 +16,10 @@ var bodyParser = require('body-parser').json();
 
 
 
+var businessCtrl = require('./controllers/businessCtrl');
+
+var operatorCtrl = require('./controllers/operatorCtrl');
+
 module.exports = function(app){
 
 	app.get('/', function(req, res){
@@ -37,11 +41,14 @@ module.exports = function(app){
 
 	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
 
-	app.post('/addproduct', bodyParser, businessCtrl.addproduct);
+    app.post('/addproduct', bodyParser, businessCtrl.addproduct);
 
 	app.put('/updateproduct',bodyParser, businessCtrl.updateproduct);
         
     app.get('/getAllProducts',bodyParser, businessCtrl.getAllProducts);
+
+    app.post('/user/writeReview', userCtrl.writeReview);
+
 
 }
 module.exports = router;
@@ -122,3 +129,10 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
+
+	
+
+
+	
+}
+

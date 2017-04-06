@@ -8,6 +8,7 @@ var productSchema = new mongoose.Schema({
 		required : true
 	},
 
+
 	productdescription : {
 		type : String,
 		required : true
@@ -34,3 +35,5 @@ productSchema.methods.changePassword = function(oldPassword, newPassword){
 var product = mongoose.model('product', productSchema);
 
 module.exports = product;
+
+mongoose.model('Product', productSchema);
