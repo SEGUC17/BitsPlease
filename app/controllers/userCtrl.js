@@ -1,7 +1,8 @@
+
 var mongoose = require("mongoose");
 var User = mongoose.model('User');
 var Rate = mongoose.model('Rate');
-var review = require('../models/review');
+var review = mongoose.model('review');
 
 module.exports= {
   postrating : function(req,res){
@@ -55,3 +56,4 @@ module.exports = {
   }
 
 }
+

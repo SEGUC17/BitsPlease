@@ -1,3 +1,7 @@
+
+
+	
+
 var userCtrl = require('./controllers/userCtrl');
 var  bodyParser = require('body-parser').json();
 var businessCtrl = require('./controllers/businessCtrl');
@@ -20,10 +24,13 @@ var businessCtrl = require('./controllers/businessCtrl');
 
 var operatorCtrl = require('./controllers/operatorCtrl');
 
-module.exports = function(app){
 
+module.exports = function(app){
 	app.get('/', function(req, res){
-		res.sendFile(__dirname + "/public/index.html");
+		
+		
+		
+		 res.sendFile(__dirname + "/public/index.html");
 	});
 
 
@@ -50,6 +57,8 @@ module.exports = function(app){
     app.post('/user/writeReview', userCtrl.writeReview);
 
     app.post('/operator/productPetition', operatorCtrl.productPetition);
+
+	app.post('/user/search', homeController.getAllProducts);
 
     app.post('/shoppingcart/displayShoppingCart', shoppingcart.displayShoppingCart);
     
@@ -147,4 +156,7 @@ function isLoggedIn(req, res, next) {
 
 	
 }
+=======
+}	
+>>>>>>> e5e8ca88175a7685836f96977f849891df974d8f
 
