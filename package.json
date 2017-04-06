@@ -12,13 +12,11 @@
     "cookie-parser": "^1.4.3",
     "express": "~4.5.1",
     "method-override": "~2.0.2",
-<<<<<<< HEAD
     "mongoose": "~4.4.0",
-    "nodemon": "^1.11.0"
-=======
+    "nodemon": "^1.11.0",
     "mongoose": "~4.9.3",
     "nodemon": "^1.11.0",
     "path": "^0.12.7"
->>>>>>> eb746dbba52dac99141bdcc83bf4a575b1174e31
+
   }
 }

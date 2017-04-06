@@ -7,19 +7,8 @@ var productSchema = new mongoose.Schema({
 		unique : true,
 		required : true
 	},
-<<<<<<< HEAD
+
 	description : {
-		type : String,
-		required : true
-	},
-	price : Number,
-	business : mongoose.Schema.ObjectId
-
-});
-
-mongoose.model('Product', productSchema);
-=======
-	productdescription : {
 		type : String,
 		required : true
 	},
@@ -31,6 +20,8 @@ mongoose.model('Product', productSchema);
 
 });
 
+
+
 productSchema.methods.changePassword = function(oldPassword, newPassword){
     if(oldPassword !== this.password) throw Error("Incorrect old password");
     else{
@@ -40,6 +31,4 @@ productSchema.methods.changePassword = function(oldPassword, newPassword){
 
 var product = mongoose.model('product', productSchema);
 
-module.exports = product; 
-
->>>>>>> eb746dbba52dac99141bdcc83bf4a575b1174e31
+module.exports = product;
