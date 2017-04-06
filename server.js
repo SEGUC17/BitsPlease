@@ -4,6 +4,9 @@ var user = require('./app/models/user')
 
 var app = require('./app/app');
 
+var mongoose =  require('mongoose');
+
+var bodyParser = require('bodyParser');
 
 
 db.connect(function(){

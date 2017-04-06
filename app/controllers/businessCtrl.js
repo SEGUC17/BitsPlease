@@ -21,8 +21,44 @@ module.exports = service;
 
 var mongoose = require ("mongoose");
 
-var products = mongoose.model('products');
+var products = mongoose.model('BusinessProduct');
+var businessSchema = new mongoose.Schema({
 
+    userName : {
+        type: String,
+        unique : true,
+        required : true
+    },
+    password : {
+        type: String,
+        required : true
+    },
+    description : String,
+    companyName : String,
+    email : String,
+
+    BusinessProduct : [{
+            productName: String,
+            picture: String,
+            productdescription: String,
+            productprice: String,
+            productid: int,
+            productquantity: int 
+    }]
+
+
+});
+
+userSchema.methods.changePassword = function(oldPassword, newPassword){
+    if(oldPassword !== this.password) throw Error("Incorrect old password");
+    else{
+        this.password = newPassword;
+    }
+}
+
+
+
+mongoose.model('Business', businessSchema);
 module.exports.addproducts = function (req, res){
     products.findOne({productName : req.body.productName} ,  function(err, products){
         if (err){
@@ -34,13 +70,15 @@ module.exports.addproducts = function (req, res){
                 });
             }
             else{
-                var product = new product();
+                var product = new Business();
                 product.productName =  req.body.productName;
                 product.picture = req.body.picture;
                 product.productdescription =  req.body.productdescription;
                 prduct.productprice =  req.body.productprice;
                 product.productid =  req.body.productprice;
-                product.save(function(err){
+                product.productquantity = req.body.productquantity;
+                
+                BusinessProduct.save(function(err){
                 if(err){
                     res.status(500).json(err);
                 }
@@ -81,9 +119,10 @@ function create(id, productParam) {
             picture: productParam.picture,
             productdescription: productParam.productdescription,
             productprice: productParam.productprice,
-            productid: id
+            productid: id,
+            productquantity: productParam.productquantity
         };
-        db.products.insert(
+        db.BusinessProduct.insert(
             set,
             function (err, doc) {
                 if (err) deferred.reject(err.name + ': ' + err.message);
