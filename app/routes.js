@@ -24,6 +24,10 @@ module.exports = function(app){
 
 	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
 
+	//app.post('/user/writereview',userCtrl.writereview);
+
+
+
 
 
 	
