@@ -1,11 +1,13 @@
+var mongoose = require("mongoose");
 
-let product = require('../models/products');
-let Business = require('../models/business');
-let User = require('../models/user');
+var User = mongoose.model('User');
 
-let homeController = {
+var Product = mongoose.model('Product');
 
-    getAllProducts:function(req, res){
+var Business = mongoose.model('Business');
+
+module.exports = {
+	getAllProducts:function(req, res){
 
     	if(req.query.search){
 
@@ -33,7 +35,7 @@ let homeController = {
 			});
 
     	}
-    }, 
+    },
     getAllUsers: function(req, res){
     	if(req.query.search){
 
@@ -88,7 +90,5 @@ getAllBusinesses: function(req, res){
 			});
 	     }
 	 }
-	}
 
-
-module.exports = homeController;
+}

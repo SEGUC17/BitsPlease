@@ -15,4 +15,4 @@ var reviewSchema = new mongoose.Schema({
 
 });
 
-mongoose.model('review', reviewSchema);
+mongoose.model('Review', reviewSchema);

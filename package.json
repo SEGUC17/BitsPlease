@@ -1,41 +1,16 @@
 {
-
   "name": "seProject",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "BitsPlease",
-  "script": {
-    "start": "nodemon server.js"
+  "scripts": {
+    "start" : "nodemon server.js"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "config.json": "0.0.4",
-    "express-session": "^1.15.2",
+    "body-parser": "~1.4.2",
     "cookie-parser": "^1.4.3",
     "express": "~4.5.1",
     "method-override": "~2.0.2",
-    "nodemon": "^1.11.0",
-    "mongoose": "~4.9.3",
-    "path": "^0.12.7",
-    
-
-
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "description": "",
-  "main": "search.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SEGUC17/BitsPlease.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SEGUC17/BitsPlease/issues"
-  },
-  "homepage": "https://github.com/SEGUC17/BitsPlease#readme"
-
+    "mongoose": "~4.4.0",
+    "nodemon": "^1.11.0"
   }
-
 }

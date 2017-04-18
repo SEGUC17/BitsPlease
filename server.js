@@ -4,57 +4,17 @@ var user = require('./app/models/user');
 
 var business = require('./app/models/business');
 
-var product = require('./app/models/products');
+var product = require('./app/models/product');
 
 var advertisement = require('./app/models/advertisement');
 
-var express = require('express');
+var rate = require('./app/models/rate');
 
-var app = express();
+var review = require('./app/models/review');
 
-var session = require('express-session');
-
-var bodyParser = require('body-parser');
-
-var cors = require('cors');
-//var expressJwt = require('express-jwt');
-var config = require('config.json');
-
-var path = require('path');
-
-var mongoose = require('mongoose');
-
-var router = require('./app/routes');
-
-var business = require('./app/models/business')
-
-var product = require('./app/models/products')
-
-var advertisement = require('./app/models/advertisement')
-
-var business = require('./app/models/business')
-
-var product = require('./app/models/products')
-
-var advertisement = require('./app/models/advertisement')
-
-var rate = require('./app/models/rate')
-
-var review = require('./app/models/review')
+var subscription = require('./app/models/subscription')
 
 var app = require('./app/app');
-
-
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname+ '/public'));
-//app.use(cors());
-
-
-mongoose.Promise = global.Promise;
-mongoose.connect(DB_URI);
-app.use(router);
-
 
 
 

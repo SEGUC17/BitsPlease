@@ -4,6 +4,8 @@ var Business = mongoose.model('Business');
 
 var Advertisement = mongoose.model('Advertisement');
 
+var Product = mongoose.model('Product');
+
 module.exports = {
 
 	acceptBusiness : function(req, res){
@@ -75,21 +77,6 @@ module.exports = {
 		});
 	},
 
-	productPetition: function(req,res){
-let tempProduct = new tempProduct(req.body);
-tempProduct.save(function(err, tempProduct){
-	if(err){
-		res.send(err.message)
-                console.log(err);
-            }
-            else{
-
-                console.log(tempProduct);
-                res.redirect('/client/productPetition');
-            }
-        })
-    
-}
     acceptPlan : function(req,res){
         Subscription.findById(req.body.SubscriptionID).exec(function(err, plan){
             if (err){
@@ -114,6 +101,33 @@ tempProduct.save(function(err, tempProduct){
                 });
             }
         });
-    }
+    },
+
+    addProduct : function (req, res){
+    	Product.findById(req.body.productId).exec(function(err, product){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+			}
+			if(product){
+				product.accepted = true;
+				product.rejected = false;
+				product.save(function(err){
+					if(err){
+						res.status(500).json({
+						"message" : "Error, please try again"
+						});
+					}
+					else{
+						res.status(200).json({
+							"message" : "Product added"
+						});
+					}
+				});
+			}
+		});
+       
+},
 
 }
