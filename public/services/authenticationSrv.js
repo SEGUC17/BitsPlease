@@ -14,10 +14,15 @@
 			return $http.post('/business/recieveRequest', business);
 		}
 
+                var update = function(product){
+			return $http.post('/business/updateProduct', product);
+		}
+
 		return {
 			login : login,
 			register : register,
-			request : request
+			request : request,
+                        update : update
 		};
 	}
 })();
