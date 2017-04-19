@@ -3,7 +3,7 @@ var userCtrl = require('./controllers/userCtrl');
 var businessCtrl = require('./controllers/businessCtrl');
 
 var operatorCtrl = require('./controllers/operatorCtrl');
-
+var shoppingCtrl= require('./controllers/shoppingCtrl');
 module.exports = function(app){
 
 	app.get('/', function(req, res){
@@ -24,8 +24,8 @@ module.exports = function(app){
 
 	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
 
-    app.post('/shoppingcart/displayShoppingCart', shoppingcart.displayShoppingCart);
-    app.post('/shoppingcart/AddtoCart' , shoppingcart.AddtoCart);
+    app.get('/shoppingCtrl/displayShoppingCart', shoppingCtrl.displayShoppingCart);
+    app.post('/shoppingCtrl/AddtoCart', shoppingCtrl.AddtoCart);
 
 	
 }
