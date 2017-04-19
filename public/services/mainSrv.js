@@ -11,6 +11,9 @@ app.factory('mainSrv', function(){
 		},
 		getBusiness : function(){
 			return this.business;
+		},
+		getProduct : function(){
+			return this.product;
 		}
 	}
 })
