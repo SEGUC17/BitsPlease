@@ -30,7 +30,7 @@ module.exports = function(app){
 
 	app.post('user/writeReview', userCtrl.writeReview);
 
-	//BUSSINESS/
+	//BUSSINESS
     app.post('/business/recieveRequest', businessCtrl.recieveRequest);
 
 	app.post('/business/changePassword', businessCtrl.changePassword);

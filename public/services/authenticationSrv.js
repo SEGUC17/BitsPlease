@@ -13,11 +13,15 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
+		var add = function(product){
+			return $http.post('/operator/addProduct' , product);
+		}
 
 		return {
 			login : login,
 			register : register,
-			request : request
+			request : request,
+			add : add
 		};
 	}
 })();
