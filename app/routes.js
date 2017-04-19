@@ -55,7 +55,7 @@ module.exports = function(app){
 	app.post('/operator/addProduct', operatorCtrl.addProduct);
 
 	//HOME
-	app.get('/home/getAllProducts', homeCtrl.getAllProducts);
+	app.post('/home/getAllProducts', homeCtrl.getAllProducts);
 
 	app.get('/home/getAllUsers', homeCtrl.getAllUsers);
 

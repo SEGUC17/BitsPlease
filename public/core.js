@@ -18,5 +18,9 @@ app.config(function($routeProvider){
 	.when('/request', {
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
+	})
+	.when('/search', {
+		templateUrl : 'partials/search.html',
+		controller : 'searchCtrl'
 	});
 })

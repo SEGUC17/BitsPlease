@@ -13,11 +13,23 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
+		var searchProduct = function(product){
+			return $http.get('/home/getAllProducts', product);
+		}
+		var searchUser = function(user){
+			return $http.get('/home/getAllUsers', product);
+		}
+		var searchBusiness = function(bsuiness){
+			return $http.get('/home/getAllBusinesses', product);
+		}
 
 		return {
 			login : login,
 			register : register,
-			request : request
+			request : request,
+			searchProduct : searchProduct,
+			searchBusiness : searchBusiness,
+			searchUser : searchUser
 		};
 	}
 })();
