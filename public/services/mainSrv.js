@@ -1,0 +1,22 @@
+app.factory('mainSrv', function(){
+	return { 
+		setUser : function(user){
+			this.user = user;
+		},
+		getUser : function(){
+			return this.user;
+		},
+		setBusiness : function(business){
+			this.business = business;
+		},
+		getBusiness : function(){
+			return this.business;
+		},
+		setProduct : function(Product){
+			this.Product = Product;
+		},
+		getProduct : function(){
+			return this.Product;
+		}
+	}
+})

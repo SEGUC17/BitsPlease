@@ -1,19 +1,18 @@
 var mongoose = require('mongoose');
 
-var tempProductSchema = new mongoose.Schema({
+var reviewSchema = new mongoose.Schema({
 
 	productName : {
 		type : String,
 		unique : true,
 		required : true
 	},
-	description : {
+	reviewContent : {
 		type : String,
 		required : true
 	},
-	price : Number,
 	business : mongoose.Schema.ObjectId
 
 });
 
-mongoose.model('tempProduct', tempProductSchema);
+mongoose.model('Review', reviewSchema);

@@ -1,20 +1,16 @@
 {
-  "name": "se-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "seProject",
+  "version": "0.0.0",
+  "author": "BitsPlease",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SEGUC17/BitsPlease.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SEGUC17/BitsPlease/issues"
-  },
-  "homepage": "https://github.com/SEGUC17/BitsPlease#readme"
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.9.5",
+    "nodemon": "^1.11.0"
+  }
 }
