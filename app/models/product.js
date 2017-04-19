@@ -11,8 +11,14 @@ var productSchema = new mongoose.Schema({
 		type : String,
 		required : true
 	},
-	price : Number,
-	business : mongoose.Schema.ObjectId
+	price : {
+		type: Number,
+		required : true
+	},
+	picture : String,
+	//business : mongoose.Schema.ObjectId
+	accepted : Boolean,
+	rejected : Boolean
 
 });
 

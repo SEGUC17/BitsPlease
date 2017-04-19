@@ -4,6 +4,8 @@ var Business = mongoose.model('Business');
 
 var Advertisement = mongoose.model('Advertisement');
 
+var Product = mongoose.model('Product');
+
 module.exports = {
 
 	acceptBusiness : function(req, res){
@@ -73,5 +75,59 @@ module.exports = {
 				});
 			}
 		});
-	}
+	},
+
+    acceptPlan : function(req,res){
+        Subscription.findById(req.body.SubscriptionID).exec(function(err, plan){
+            if (err){
+                res.status(500).json({
+                    "message": "Error, please try again"
+                });
+            }
+            if (plan){
+                plan.accepted = true;
+                plan.rejected = false;
+                plan.save(function(err){
+                    if(err){
+                        res.status(500).json({
+                            "message": "Error,please try again"
+                        });
+                    }
+                    else{
+                        res.status(200).json({
+                            "message": "Subscription plan accepted"
+                        });
+                    }
+                });
+            }
+        });
+    },
+
+    addProduct : function (req, res){
+    	Product.findById(req.body.productId).exec(function(err, product){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+			}
+			if(product){
+				product.accepted = true;
+				product.rejected = false;
+				product.save(function(err){
+					if(err){
+						res.status(500).json({
+						"message" : "Error, please try again"
+						});
+					}
+					else{
+						res.status(200).json({
+							"message" : "Product added"
+						});
+					}
+				});
+			}
+		});
+       
+},
+
 }
