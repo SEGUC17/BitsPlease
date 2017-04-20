@@ -2,7 +2,7 @@
   "name": "seProject",
   "version": "0.0.0",
   "author": "BitsPlease",
-  "script": {
+  "scripts": {
     "start" : "nodemon server.js"
   },
   "dependencies": {

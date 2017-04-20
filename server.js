@@ -1,14 +1,18 @@
 var db = require('./app/db');
 
-var user = require('./app/models/user')
+var user = require('./app/models/user');
 
-var business = require('./app/models/business')
+var business = require('./app/models/business');
 
-var product = require('./app/models/products')
+var product = require('./app/models/product');
 
-var advertisement = require('./app/models/advertisement')
+var advertisement = require('./app/models/advertisement');
 
-var rate = require('./app/models/rate')
+var rate = require('./app/models/rate');
+
+var review = require('./app/models/review');
+
+var subscription = require('./app/models/subscription')
 
 var app = require('./app/app');
 

@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<h2>Request</h2>
+		<div class="col s12">
+			<input type="text" ng-model="companyName" placeholder="Company Name" />
+		</div>
+		<div class="col s6">
+			<input type="text" ng-model="description" placeholder="Describe your business" />
+		</div>
+		<div class="col s6">
+			<input type="email" ng-model="email" placeholder="email <example@abc.com>" />
+		</div>
+	</div>
+	<div class="row">
+		<button class="btn" ng-click="request()">Submit</button>
+		<p class="red-text" ng-bind="error"></p>
+	</div>
+</div>

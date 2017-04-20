@@ -4,8 +4,13 @@ var Business = mongoose.model('Business');
 
 var Advertisement = mongoose.model('Advertisement');
 
-module.exports = {
+var Product = mongoose.model('Product');
 
+var Subscription = mongoose.model('Subscription');
+
+var bodyParser = require('body-parser').json();
+
+module.exports = {
 	test : function(req, res){
 		
 		var name = req.params.name;
@@ -13,7 +18,6 @@ module.exports = {
 			"message" : "Hi "+name
 		});
 	},
-
 	recieveRequest : function(req, res){
 		var business = new Business();
 		business.companyName = req.body.companyName;
@@ -30,7 +34,7 @@ module.exports = {
 			}
 			else{
 				res.status(200).json({
-					"message" : "Request processed"
+					"message" : "Request submitted"
 				});
 			}
 		});
@@ -50,7 +54,7 @@ module.exports = {
 			}
 			else{
 				res.status(200).json({
-					"message" : "Ad posted"
+					"message" : "Ad request submitted"
 				});
 			}
 		})
@@ -77,7 +81,114 @@ module.exports = {
 				})
 			}
 		});
-	}
+	},
+	productRequest : function(req, res){
+		var product = new Product();
+		product.productName = req.body.productName;
+		product.description = req.body.description;
+		product.price = req.body.price;
+		product.picture = req.body.picture;
+		product.business = req.body.business;
+		product.accepted = false;
+		product.rejected = false;
+		product.save(function(err){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+			}
+			else{
+				res.status(200).json({
+					"message" : "Product request submitted"
+				});
+			}
+		});
+	},
+	
+    updateProduct : function (req, res){
+         var query = {'productName':req.body.productName};
+         req.newData.productName = req.product.productName;
+         product.findOne({productName : req.body.productName} ,  function(err, products){
+         if (err){
+            res.status(500).json(err);
+            }
+         if(products){
+                res.status(401).json({
+                    "message" : "product already exists"
+                });
+            }
+            else{
+                var product = new product(req.body);
+                product.productName =  req.body.productName || product.productName;
+                product.picture = req.body.picture || product.picture;
+                product.productdescription =  req.body.productdescription || product.productdescription;
+                product.productprice =  req.body.productprice || product.productprice;
+                product.productid = req.body.productid || product.productid;
+                product.productquantity = req.body.productquantity || product.productquantity;
 
+
+                console.log("here is the product" + product);
+
+
+                product.update(function(err, product){
+
+                if(err){
+                    res.status(500).json(err);
+                }
+                else{
+
+                    console.log("Product>>" + Product);
+                    console.log("req.body>>" + req.body);
+                    res.status(200).json({
+                        "message" : "success"
+
+                    })
+
+                }
+           });
+
+ 
+
+         }
+     });
+},
+subscriptionRequest : function(req, res){
+	var subscription = new Subscription();
+		subscription.planName = req.body.planName;
+		subscription.description = req.body.description;
+		subscription.price = req.body.price;
+		subscription.duration = req.body.duration;
+		subscription.business = req.body.business;
+		subscription.accepted = false;
+		subscription.rejected = false;
+		subscription.save(function(err){
+			if(err){
+				res.status(500).json({
+					"message" : "Error, please try again"
+				});
+			}
+			else{
+				res.status(200).json({
+					"message" : "Subscription plan request submitted"
+				});
+			}
+		});
+
+},
+getAllProducts:function(req, res){
+        Product.findById(req.body.productID).exec(function(err, product){
+			if(err){
+				res.status(500).json({
+					"message" : "error, please try again"
+				});
+			}
+			else{
+				console.log(product);
+				res.status(200).json({
+					"message" : "success"
+				})
+			}
+		});
+	}
 
 }
