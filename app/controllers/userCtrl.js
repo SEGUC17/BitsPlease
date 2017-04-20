@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var User = mongoose.model('User');
 var Rate = mongoose.model('Rate');
+
 module.exports= {
   postrating : function(req,res){
     var rate =  new Rate();
