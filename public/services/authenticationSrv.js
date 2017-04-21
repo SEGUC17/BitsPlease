@@ -14,15 +14,19 @@
 			return $http.post('/business/recieveRequest', business);
 		}
 
-                var update = function(product){
+        var update = function(product){
 			return $http.post('/business/updateProduct', product);
+		}
+		var buy = function(product){
+			return $http.post('/user/charge', product);
 		}
 
 		return {
 			login : login,
 			register : register,
 			request : request,
-                        update : update
+            update : update,
+            buy : buy
 		};
 	}
 })();

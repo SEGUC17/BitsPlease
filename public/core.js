@@ -15,11 +15,15 @@ app.config(function($routeProvider){
 		templateUrl : 'partials/profile.html',
 		controller : 'profileCtrl'
 	})
+	.when('/buy', {
+		templateUrl : 'partials/buy.html',
+		controller : 'buyCtrl'
+	})
 	.when('/request', {
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
 	})
-        .when('/update', {
+    .when('/updateProducts', {
 		templateUrl : 'partials/updateProducts.html',
 		controller: 'updateProductsCtrl'
 	});
