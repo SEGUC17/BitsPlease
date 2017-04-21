@@ -13,15 +13,19 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
-		var add = function(product){
-			return $http.post('/operator/addProduct' , product);
+		var productreq = function(product){
+			return $http.post('/business/productRequest' , product);
+		}
+		var addProduct = function(product){
+			return $http.post('/operator/addProduct', product);
 		}
 
 		return {
 			login : login,
 			register : register,
 			request : request,
-			add : add
+			productreq : productreq,
+			addProduct : addProduct
 		};
 	}
 })();

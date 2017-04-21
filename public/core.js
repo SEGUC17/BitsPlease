@@ -19,8 +19,12 @@ app.config(function($routeProvider){
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
 	})
-	.when('/add', {
-		templateUrl : 'partials/addproduct.html',
-		controller : 'addproductCtrl'
+	.when('/productrequest', {
+		templateUrl : 'partials/productreq.html',
+		controller : 'productreqCtrl'
+	})
+	.when('/addProduct', {
+		templateUrl : 'partials/addProduct.html',
+		controller : 'addProductCtrl'
 	});
 })

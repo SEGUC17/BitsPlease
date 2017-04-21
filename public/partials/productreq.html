@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <h2>product petition</h2>
+        <div class="col s12">
+            <input type="text" ng-model="productName" placeholder="product name" />
+        </div>
+        <div class="col s12">
+            <input type="text" ng-model="description" placeholder="description" />
+        </div>
+        <div class="col s6">
+            <input type="number" ng-model="price" placeholder="product price" />
+        </div>
+        <div class="col s6">
+            <input type="text" ng-model="quantity" placeholder="quantity" />
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn" ng-click="productreq()">Save</button>
+        <p class="red-text" ng-bind="error"></p>
+    </div>
+</div>
