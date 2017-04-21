@@ -19,8 +19,8 @@ app.config(function($routeProvider){
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
 	})
-	.when('/subscribe', {
-		templateUrl : 'partials/subscription.html',
+	.when('/subscriptionPayment', {
+		templateUrl : 'partials/subscriptionPayment.html',
 		controller : 'subscriptionCtrl'
 	})
 	.when('/productPetition', {

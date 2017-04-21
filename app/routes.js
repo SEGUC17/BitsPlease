@@ -43,9 +43,7 @@ module.exports = function(app){
 
 	app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
 	
-	app.post('/business/subscribe',businessCtrl.subscriptionRequest);
-
-	app.post('/charge',businessCtrl.charge);
+	app.post('/business/charge',businessCtrl.charge);
 
 	//OPERATOR
     app.post('/operator/acceptBusiness', operatorCtrl.acceptBusiness);
@@ -66,8 +64,5 @@ module.exports = function(app){
 	app.get('/home/getAllUsers', homeCtrl.getAllUsers);
 
 	app.get('/home/getAllBusinesses', homeCtrl.getAllBusinesses);
-
-
-	
 	
 }

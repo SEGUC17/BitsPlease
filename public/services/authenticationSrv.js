@@ -13,15 +13,15 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
-		var petition = function(business){
-			return $http.post('/business/productRequest', business);
+		var subscriptionPayment = function(subscription){
+			return $http.post('/business/charge', subscription);
 		}
 
 		return {
 			login : login,
 			register : register,
 			request : request,
-			petition : petition
+			subscriptionPayment: subscriptionPayment
 		};
 	}
 })();
