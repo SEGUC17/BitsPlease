@@ -13,11 +13,16 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
+		var review = function(user){
+			return $http.post('/user/writeReview', user);
+		}
+
 
 		return {
 			login : login,
 			register : register,
-			request : request
+			request : request,
+			review : review
 		};
 	}
 })();
