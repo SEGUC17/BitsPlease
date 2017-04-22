@@ -17,11 +17,11 @@ app.controller('producttrl', function($scope, $location, authSrv, mainSrv){
 
 	});
     BasicDBObject searchQuery = new BasicDBObject("product", product);
-BasicDBObject theProductObj = new BasicDBObject();
+	BasicDBObject theProductObj = new BasicDBObject();
 
-List<Object> productDBList = new BasicDBList();
+	List<Object> productDBList = new BasicDBList();
 
-for (Product product : productArray) {
+	for (Product product : productArray) {
     DBObject productDBObject = new BasicDBObject();
     productDBObject.put("productName", product.productName);
     productDBObject.put("description", product.description);
