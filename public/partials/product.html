@@ -1,19 +1,4 @@
-
-<nav>
-    <div class="card-panel teal lighten-2" >
-     <div class="card-panel teal lighten-2" >
-    
-     <a href="#" class="brand-logo right">Logo</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#">home</a></li>
-        <li><a href="#!profile">profile</a></li>
-        <li><a href="#!/request">request</a></li>
-      </ul>
-    </div>
-    </div>
-  </nav>
-
-  <div class="container"><img src="https://0.s3.envato.com/files/35091703/collection-fitness.jpg"></div>
+<div class="container"><img src="https://0.s3.envato.com/files/35091703/collection-fitness.jpg"></div>
     </div>
     
     <h1>Awesome Product</h1>
@@ -135,11 +120,20 @@
       <li><a href="#">Contact</a></li>
       <li><a href="#">Mainpage</a></li>
     </ul>
-    <p>&copy; 2014 dat Company. All rights reserved.</p>
   </div>
 </footer>
  
 
 
     </div>
+
+
+<div class="container">
+<div ng-repeat="products in arr">
+	<h5>product: {{products.productName}}</h5>
+	<h5>description: {{products.description}}</h5>
+	<button ng-click="rate(product)">rate</button>
+	<button ng-click="addToCart(product)">add</button>
+</div>
+</div>
 

@@ -38,6 +38,7 @@ module.exports = {
 				});
 			}
 		});
+		
 	},
 
 	postAd : function(req, res){
@@ -175,7 +176,7 @@ subscriptionRequest : function(req, res){
 		});
 
 },
-getAllProducts:function(req, res){
+viewProducts:function(req, res){
         Product.findById(req.body.productID).exec(function(err, product){
 			if(err){
 				res.status(500).json({
@@ -189,6 +190,7 @@ getAllProducts:function(req, res){
 				})
 			}
 		});
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-app.controller('producttrl', function($scope, $location, authSrv, mainSrv){
+app.controller('productCtrl', function($scope, $location, authSrv, mainSrv){
 
 	$scope.goToRegister = function(){
 		$location.url('/register');
@@ -34,5 +34,14 @@ app.controller('producttrl', function($scope, $location, authSrv, mainSrv){
 
 theProductCollection.update(searchQuery, theProductObj);
 
+app.controller('productCtrl', function($scope, $location, authSrv, mainSrv,dataSrv){
+	dataSrv.displayProduct()
+	.then(function(data){
+		console.log(data.data);
+		$scope.arr = data.data;
+	},
+	function(err){
+		console.log(err);
+	});
 
 });

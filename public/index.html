@@ -1,49 +1,31 @@
 <!DOCTYPE html>
-<html ng-app="seProject">
-	<head>
-		<title>Nutrition and Fitness</title>
-		<link rel="stylesheet" type="text/css" href="css/materialize.css" media="screen,projection"/>
-	</head>
-	<body>
-	 <!DOCTYPE html>
-<html>
-<head>
-<nav>
-    <div class="card-panel #0000000" >
-     <div class="card-panel teal lighten-2" >
-    
-     <a href="#" class="brand-logo right">Logo</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="#">home</a></li>
-        <li><a href="#!profile">profile</a></li>
-        <li><a href="#!/request">request</a></li>
-      </ul>
-    </div>
-    </div>
-  </nav>
 
- 
-</head> 
-<body>
+		<nav class="black" role="navigation">
+    		<div class="nav-wrapper container">
+     			 <a id="logo-container" href="#" class="brand-logo">Nutrition And Fitness</a>
+     			 <ul class="right hide-on-med-and-down black-text">
+      			  <li><a>Navbar Link</a></li>
+      			  <li><a>Navbar Link 1</a></li>
+      			  <li><a>Navbar Link 2</a></li>
+     			 </ul>
 
-<p align="left">hi</p>
- <font ><h1 align="center">Welcome to nutrition and fitness</h1><size="5">
-    <h2>We only know Fit</h2>
+			      <ul id="nav-mobile" class="side-nav">
+			        <li><a href="#">Navbar Link</a></li>
+			      </ul>
+      			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    		</div>
+ 	    </nav>
 
-</body>
-
-</html>
 
 	
 		<div ng-view></div>
 		<!-- <h1 class="red-text">I'm working</h1> -->
 
-		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+ 		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/angular-route.min.js"></script>
 		<script type="text/javascript" src="js/materialize.js"></script>
-		<!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
-		<script type="text/javascript" src="core.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="core.js"></script>
 
 		<!-- Angular Controllers -->
         <script type="text/javascript" src="controllers/homeCtrl.js"></script>
@@ -51,11 +33,15 @@
         <script type="text/javascript" src="controllers/profileCtrl.js"></script>	
         <script type="text/javascript" src="controllers/requestCtrl.js"></script>
         <script type="text/javascript" src="controllers/home2Ctrl.js"></script>
+        <script type="text/javascript" src="controllers/adCtrl.js"></script>
+        <script type="text/javascript" src="controllers/productCtrl.js"></script>
 		
 
 		<!-- Angular Services -->
 		<script type="text/javascript" src="services/authenticationSrv.js"></script>
-		<script type="text/javascript" src="services/mainSrv.js"></script>		
+		<script type="text/javascript" src="services/mainSrv.js"></script>
+		<script type="text/javascript" src="services/dataSrv.js"></script>		
+		
 	
 
 	</body>

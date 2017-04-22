@@ -17,7 +17,8 @@ var userSchema = new mongoose.Schema({
 		required : true
 	},
 	firstName : String,
-	lastName: String
+	lastName: String,
+	operator: false
 
 
 });

@@ -18,8 +18,16 @@ module.exports = function(app){
 	app.get('/test/:name', businessCtrl.test);
 
 	app.get('/testget', function(req, res){
-		res.send("test get working");
-	})
+		res.send([{
+			"name" : "farah" 
+		},
+		{
+			"name" : "yasmine"
+		},
+		{
+			"name" : "shokr"
+		}]);
+	});
 
 	//USER
     app.post('/user/register', userCtrl.register);
@@ -41,7 +49,7 @@ module.exports = function(app){
 
 	app.post('/business/updateProduct', bodyParser, businessCtrl.updateProduct);
 
-	app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
+	app.get('/business/viewProducts', bodyParser, businessCtrl.viewProducts);
 
 	//OPERATOR
     app.post('/operator/acceptBusiness', operatorCtrl.acceptBusiness);

@@ -6,30 +6,29 @@ var Rate = mongoose.model('Rate');
 
 module.exports = {
 	register : function(req, res){
-		console.log("bagarab register");
 		User.findOne({userName : req.body.userName} , function(err, user){
 		if(err){
 			res.status(500).json(err);
 		}
 		if(user){
 			res.status(401).json({
-				"message" : "User already exists"
+				"message" : "user already exists"
 			});
 		}
 		else{
 			var user = new User();
 			user.userName = req.body.userName;
 			user.password = req.body.password;
-			user.email = req.body.email;
 			user.firstName = req.body.firstName;
 			user.lastName = req.body.lastName;
+			user.email = req.body.email;
 			user.save(function(err){
 				if(err){
 					res.status(500).json(err);
 				}
 				else{
 					res.status(200).json({
-						"message" : "Success"
+						"message" : "Thank you"
 					});
 				}
 			});
