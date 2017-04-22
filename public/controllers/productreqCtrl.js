@@ -13,7 +13,7 @@ if($scope.productName === undefined){
 				accepted : false,
 				rejected : false
 			};
-			authSrv.productreq(product)
+			dataSrv.productreq(product)
 			.then(function(data){
 				mainSrv.setProduct(product);
 				$scope.error = "";

@@ -24,7 +24,7 @@ app.config(function($routeProvider){
 		controller : 'productreqCtrl'
 	})
 	.when('/addProduct', {
-		templateUrl : 'partials/addProduct.html',
-		controller : 'addProductCtrl'
+		templateUrl : 'partials/operator.html',
+		controller : 'operatorCtrl'
 	});
 })
