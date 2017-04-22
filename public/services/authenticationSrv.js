@@ -13,11 +13,16 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
+		var viewProductDetails= function(product){
+			return $http.post('/business/getAllProducts', product);
+		}
 
 		return {
 			login : login,
 			register : register,
-			request : request
+			request : request,
+			adRequest : adRequest,
+			viewProductDetails : viewProductDetails
 		};
 	}
 })();

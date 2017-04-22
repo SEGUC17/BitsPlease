@@ -18,5 +18,14 @@ app.config(function($routeProvider){
 	.when('/request', {
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
+	})
+	.when('/product', {
+		templateUrl : 'partials/product.html',
+		controller : 'productCtrl'
+	})
+    .when('/home', {
+		templateUrl : 'partials/home2.html',
+		controller : 'home2Ctrl'
 	});
+
 })

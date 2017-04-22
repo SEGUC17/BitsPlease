@@ -104,11 +104,11 @@ postRating : function(req, res){
 
       
       })
-    }
+    },
+    
 
 
 
 
 
 }
->>>>>>> efa98fdba015a6ccb71b25eee19f360b976f4d08

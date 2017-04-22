@@ -13,7 +13,7 @@ app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv){
 			});
 		}
 
-	$scope.gToRegister = function(){
+	$scope.goToRegister = function(){
 		$location.url('/register');
 	}
 

@@ -12,5 +12,11 @@ app.factory('mainSrv', function(){
 		getBusiness : function(){
 			return this.business;
 		}
+		setProduct : function(product){
+			this.product = product;
+		},
+		getProduct : function(){
+			return this.product;
 	}
+}
 })
