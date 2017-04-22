@@ -1,8 +1,8 @@
-app.controller('registerCtrl', function($scope, $location, authSrv){
+app.controller('registerCtrl', function($scope, $location, authSrv, mainSrv){
 
 	$scope.register = function(){
 		if($scope.userName === undefined){
-			$scope.error = "Please enter your username!";
+			$scope.error = "Please enter a username";
 			return;
 		}
 		if($scope.password === undefined){
@@ -14,7 +14,7 @@ app.controller('registerCtrl', function($scope, $location, authSrv){
 			return;
 		}
 		if($scope.confirmPassword !== $scope.password){
-			$scope.error = "Password doesn't match";
+			$scope.error = "Passwords don't match";
 			return;
 		}
 		else{
@@ -25,6 +25,7 @@ app.controller('registerCtrl', function($scope, $location, authSrv){
 				lastName : $scope.lastName,
 				email : $scope.email
 			};
+			
 			authSrv.register(user)
 			.then(function(data){
 				mainSrv.setUser(user);
@@ -33,7 +34,7 @@ app.controller('registerCtrl', function($scope, $location, authSrv){
 			},
 			function(err){
 				$scope.error = err.message;
-				console.log(err);
+				console.log(err.message);
 			});
 		}
 

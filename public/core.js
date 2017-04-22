@@ -18,5 +18,17 @@ app.config(function($routeProvider){
 	.when('/request', {
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
+	})
+	.when('/adRequest', {
+		templateUrl : 'partials/adRequest.html',
+		controller : 'adCtrl'
+	})
+	.when('/adView', {
+		templateUrl : 'partials/adView.html',
+		controller : 'adCtrl'
+	})
+	.when('/shop', {
+		templateUrl : 'partials/product.html',
+		controller : 'productCtrl'
 	});
 })

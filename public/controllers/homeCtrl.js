@@ -1,4 +1,20 @@
-app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv){
+app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
+
+	dataSrv.testget()
+	.then(function(data){
+		console.log(data.data);
+		$scope.arr = data.data;
+	},
+	function(err){
+		console.log(err);
+	});
+
+	$scope.printName = function(a){
+		$scope.flag = !$scope.flag;
+		console.log(a.name);
+	}
+
+	$scope.flag = false;
 
 	$scope.login = function(){
 		var userName = $scope.userName;
@@ -9,11 +25,11 @@ app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv){
 				$location.url('/profile');
 				},
 			function(err){
-				console.log(err);
+				console.log(err.message);
 			});
 		}
 
-	$scope.gToRegister = function(){
+	$scope.goToRegister = function(){
 		$location.url('/register');
 	}
 

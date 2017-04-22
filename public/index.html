@@ -5,27 +5,47 @@
 		<link rel="stylesheet" type="text/css" href="css/materialize.css" media="screen,projection"/>
 	</head>
 	<body>
+
+		<nav class="black" role="navigation">
+    		<div class="nav-wrapper container">
+     			 <a id="logo-container" href="#" class="brand-logo">Nutrition And Fitness</a>
+     			 <ul class="right hide-on-med-and-down black-text">
+      			  <li><a>Navbar Link</a></li>
+      			  <li><a>Navbar Link 1</a></li>
+      			  <li><a>Navbar Link 2</a></li>
+     			 </ul>
+
+			      <ul id="nav-mobile" class="side-nav">
+			        <li><a href="#">Navbar Link</a></li>
+			      </ul>
+      			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    		</div>
+ 	    </nav>
+
 	
 		<div ng-view></div>
 		<!-- <h1 class="red-text">I'm working</h1> -->
 
-		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+ 		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/angular-route.min.js"></script>
 		<script type="text/javascript" src="js/materialize.js"></script>
-		<!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
-		<script type="text/javascript" src="core.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+        <script type="text/javascript" src="core.js"></script>
 
 		<!-- Angular Controllers -->
         <script type="text/javascript" src="controllers/homeCtrl.js"></script>
         <script type="text/javascript" src="controllers/registerCtrl.js"></script>
         <script type="text/javascript" src="controllers/profileCtrl.js"></script>	
         <script type="text/javascript" src="controllers/requestCtrl.js"></script>
+        <script type="text/javascript" src="controllers/adCtrl.js"></script>
+         <script type="text/javascript" src="controllers/productCtrl.js"></script>
 		
 
 		<!-- Angular Services -->
 		<script type="text/javascript" src="services/authenticationSrv.js"></script>
-		<script type="text/javascript" src="services/mainSrv.js"></script>		
+		<script type="text/javascript" src="services/mainSrv.js"></script>
+		<script type="text/javascript" src="services/dataSrv.js"></script>		
+		
 	
 
 	</body>
