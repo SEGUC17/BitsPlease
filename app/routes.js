@@ -73,7 +73,7 @@ module.exports = function(app){
 
 
 	//HOME
-	app.get('/home/getAllProducts', homeCtrl.getAllProducts);
+	app.post('/home/getAllProducts', homeCtrl.getAllProducts);
 
 	app.get('/home/getAllUsers', homeCtrl.getAllUsers);
 

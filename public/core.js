@@ -46,5 +46,9 @@ app.config(function($routeProvider){
 	.when('/productPetition', {
 		templateUrl : 'partials/productPetition.html',
 		controller : 'productPetitionCtrl'
+	})	
+	.when('/search', {
+		templateUrl : 'partials/search.html',
+		controller : 'searchCtrl'
 	});
 });

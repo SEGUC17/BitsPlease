@@ -42,6 +42,16 @@
 			return $http.post('/business/charge', subscription);
 		}
 
+		var searchProduct = function(product){
+			return $http.get('/home/getAllProducts', product);
+		}
+		var searchUser = function(user){
+			return $http.get('/home/getAllUsers', product);
+		}
+		var searchBusiness = function(bsuiness){
+			return $http.get('/home/getAllBusinesses', product);
+		}
+
 		return {
 			testget: testget,
 			postAd : postAd,
@@ -51,7 +61,10 @@
 			rate : rate,
 			update : update,
             buy : buy,
-            subscriptionPayment: subscriptionPayment
+            subscriptionPayment: subscriptionPayment,
+            searchProduct : searchProduct,
+			searchBusiness : searchBusiness,
+			searchUser : searchUser
 		};
 	}
 })();

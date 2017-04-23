@@ -14,7 +14,6 @@
 			return $http.post('/business/recieveRequest', business);
 		}
 		
-
         return {
 			login : login,
 			register : register,
