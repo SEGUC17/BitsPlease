@@ -62,5 +62,9 @@ app.config(function($routeProvider){
 	.when('/addProduct', {
 		templateUrl : 'partials/operator.html',
 		controller : 'operatorCtrl'
+	})
+	.when('/review', {
+		templateUrl : 'partials/review.html',
+		controller : 'reviewCtrl'
 	});
 });

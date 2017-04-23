@@ -57,7 +57,9 @@
 		var addProduct = function(product){
 			return $http.post('/operator/addProduct', product);
 		}
-
+		var review = function(user){
+			return $http.post('/user/writeReview', user);
+		}
 
 		return {
 			testget: testget,
@@ -73,7 +75,8 @@
 			searchBusiness : searchBusiness,
 			searchUser : searchUser,
 			productreq : productreq,
-			addProduct : addProduct
+			addProduct : addProduct,
+			review : review
 		};
 	}
 })();
