@@ -38,6 +38,10 @@
 			return $http.post('/user/charge', product);
 		}
 
+		var subscriptionPayment = function(subscription){
+			return $http.post('/business/charge', subscription);
+		}
+
 		return {
 			testget: testget,
 			postAd : postAd,
@@ -46,7 +50,8 @@
 			displayProduct : displayProduct,
 			rate : rate,
 			update : update,
-            buy : buy
+            buy : buy,
+            subscriptionPayment: subscriptionPayment
 		};
 	}
 })();

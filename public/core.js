@@ -38,5 +38,13 @@ app.config(function($routeProvider){
     .when('/updateProducts', {
 		templateUrl : 'partials/updateProducts.html',
 		controller: 'updateProductsCtrl'
+	})
+	.when('/subscriptionPayment', {
+		templateUrl : 'partials/subscriptionPayment.html',
+		controller : 'subscriptionCtrl'
+	})
+	.when('/productPetition', {
+		templateUrl : 'partials/productPetition.html',
+		controller : 'productPetitionCtrl'
 	});
-})
+});

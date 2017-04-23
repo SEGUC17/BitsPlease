@@ -13,6 +13,7 @@
 		var request = function(business){
 			return $http.post('/business/recieveRequest', business);
 		}
+		
 
         return {
 			login : login,

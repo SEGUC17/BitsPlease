@@ -23,6 +23,6 @@ app.factory('mainSrv', function(){
 		},
 		getAd : function(){
 			return this.ad;
-		}
+		}	
 	}
 })

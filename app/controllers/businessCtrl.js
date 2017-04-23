@@ -10,6 +10,8 @@ var Subscription = mongoose.model('Subscription');
 
 var bodyParser = require('body-parser').json();
 
+var stripe = require('stripe')('sk_test_gbkS8ARJtaJ3U2hZ2dVLDmUa');
+
 module.exports = {
 	test : function(req, res){
 		
@@ -176,7 +178,20 @@ subscriptionRequest : function(req, res){
 		});
 
 },
-viewProducts:function(req, res){
+	charge : function(req,res){
+    var Token = req.body.stripeToken;
+    var chargeAmount = subscription.find();
+    var charge = stripe.charges.create({
+        amount:chargeAmount.price,
+        currency:"usd",
+        source: Token
+    },function(err,charge){
+        if(err && err.type === "StripeCardError"){
+            console.log("stripeCardError")
+        }
+    })},
+
+    getAllProducts:function(req, res){
         Product.findById(req.body.productID).exec(function(err, product){
 			if(err){
 				res.status(500).json({
