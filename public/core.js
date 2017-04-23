@@ -50,5 +50,5 @@ app.config(function($routeProvider){
 	.when('/search', {
 		templateUrl : 'partials/search.html',
 		controller : 'searchCtrl'
-	});
+	});	
 });
