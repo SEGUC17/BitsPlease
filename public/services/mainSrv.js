@@ -12,7 +12,7 @@ app.factory('mainSrv', function(){
 		getBusiness : function(){
 			return this.business;
 		},
-		setProduct : function(product){
+        setProduct : function(product){
 			this.product = product;
 		},
 		getProduct : function(){
@@ -24,5 +24,6 @@ app.factory('mainSrv', function(){
 		getAd : function(){
 			return this.ad;
 		}	
+
 	}
 })

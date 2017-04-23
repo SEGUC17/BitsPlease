@@ -54,5 +54,13 @@ app.config(function($routeProvider){
 	.when('/cart', {
 		templateUrl : 'partials/cart.html',
 		controller : 'cartCtrl'
-	});	
+	})
+	.when('/productrequest', {
+		templateUrl : 'partials/productreq.html',
+		controller : 'productreqCtrl'
+	})
+	.when('/addProduct', {
+		templateUrl : 'partials/operator.html',
+		controller : 'operatorCtrl'
+	});
 });

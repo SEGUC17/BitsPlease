@@ -1,0 +1,33 @@
+<h1>Add your product</h1>
+<div class="form-container">
+    <form method="post">
+        <div class="form-group">
+            <label for="productName">Product name</label>
+            <input type="text" id="productName" class="form-control" ng-model="vm.product.productName" required />
+        </div> <br>
+
+        <div class="form-group">
+            <label for="picture">Picture</label>
+            <input type="file" id="picture" class="form-control" ng-model="vm.picture.picture" />
+        </div><br>
+
+        <div class="form-group">
+            <label for="productdescription">Product description</label>
+            <input type="text" id="productdescription" class="form-control" ng-model="vm.product.productdescription" />
+        </div><br>
+
+        <div class="form-group">
+            <label for="productprice">Product price</label>
+            <input type="text" id="productprice" class="form-control" ng-model="vm.product.productprice"  />
+        </div><br>
+
+        <div class="form-group">
+            <label for="productquantity">Product quantity</label>
+            <input type="text" id="productquantity" class="form-control" ng-model="vm.product.productquantity" />
+        </div><br>
+
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="saveProduct()">Add</button>
+        </div><br>
+    </form>
+</div>

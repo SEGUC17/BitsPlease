@@ -1,4 +1,4 @@
-(function(){
+(function(){ 
 	app.service('dataSrv', dataSrv);
 	dataSrv.$inject = ['$http'];
 	function dataSrv($http){
@@ -51,6 +51,13 @@
 		var searchBusiness = function(bsuiness){
 			return $http.get('/home/getAllBusinesses', product);
 		}
+		var productreq = function(product){
+			return $http.post('/business/productRequest' , product);
+		}
+		var addProduct = function(product){
+			return $http.post('/operator/addProduct', product);
+		}
+
 
 		return {
 			testget: testget,
@@ -64,7 +71,9 @@
             subscriptionPayment: subscriptionPayment,
             searchProduct : searchProduct,
 			searchBusiness : searchBusiness,
-			searchUser : searchUser
+			searchUser : searchUser,
+			productreq : productreq,
+			addProduct : addProduct
 		};
 	}
 })();

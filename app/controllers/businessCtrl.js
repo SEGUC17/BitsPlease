@@ -106,6 +106,7 @@ module.exports = {
 				});
 			}
 		});
+		console.log(req.body);
 	},
 	
     updateProduct : function (req, res){
