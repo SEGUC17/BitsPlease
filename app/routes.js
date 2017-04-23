@@ -38,6 +38,9 @@ module.exports = function(app){
 
 	app.post('user/writeReview', userCtrl.writeReview);
 
+	app.post('/user/charge' , userCtrl.charge);
+
+
 	//BUSSINESS
     app.post('/business/recieveRequest', businessCtrl.recieveRequest);
 

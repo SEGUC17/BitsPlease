@@ -15,6 +15,10 @@ app.config(function($routeProvider){
 		templateUrl : 'partials/profile.html',
 		controller : 'profileCtrl'
 	})
+	.when('/buy', {
+		templateUrl : 'partials/buy.html',
+		controller : 'buyCtrl'
+	})
 	.when('/request', {
 		templateUrl : 'partials/request.html',
 		controller : 'requestCtrl'
@@ -30,5 +34,9 @@ app.config(function($routeProvider){
 	.when('/shop', {
 		templateUrl : 'partials/product.html',
 		controller : 'productCtrl'
+	})	
+    .when('/updateProducts', {
+		templateUrl : 'partials/updateProducts.html',
+		controller: 'updateProductsCtrl'
 	});
 })

@@ -31,13 +31,22 @@
 			return $http.post('/user/postRating', product);
 		}
 
+		var update = function(product){
+			return $http.post('/business/updateProduct', product);
+		}
+		var buy = function(product){
+			return $http.post('/user/charge', product);
+		}
+
 		return {
 			testget: testget,
 			postAd : postAd,
 			viewProductDetails : viewProductDetails,
 			displayAd : displayAd,
 			displayProduct : displayProduct,
-			rate : rate
+			rate : rate,
+			update : update,
+            buy : buy
 		};
 	}
 })();

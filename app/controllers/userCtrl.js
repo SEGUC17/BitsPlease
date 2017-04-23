@@ -6,6 +6,8 @@ var Rate = mongoose.model('Rate');
 
 var Review = mongoose.model('Review');
 
+var stripe = require('stripe')('sk_test_ZzM341uDW5Nx6H5pYGuMseIc');
+
 module.exports = {
 	register : function(req, res){
 		User.findOne({userName : req.body.userName} , function(err, user){
@@ -82,6 +84,24 @@ postRating : function(req, res){
 			}
 		});
 	},
+
+	charge: function(req,res){
+    var Token = req.body.stripeToken;
+    var chargeAmount = product.find();
+    var charge = stripe.charges.create({
+        amount:chargeAmount.price,
+        currency:"usd",
+        source: Token
+    },function(err,charge){
+        if(err && err.type === "StripeCardError"){
+            console.log("stripeCardError")
+        }
+    });
+     console.log("successfully paid!");
+    console.log(Token);
+    res.render("success");
+},
+
 	writeReview : function(req, res){
 		var review = new review();
 		review.productName = req.body.productName;
