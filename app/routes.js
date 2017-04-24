@@ -74,7 +74,7 @@ module.exports = function(app){
 	app.get('/home/getAllBusinesses', homeCtrl.getAllBusinesses);
 
 	
-	app.get('*', function(req, res){
+	app.get('/', function(req, res){
 		console.log("trying to get index")
 		res.sendFile(__dirname + "/public/index.html");
 	});

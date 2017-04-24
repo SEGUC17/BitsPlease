@@ -78,7 +78,7 @@ module.exports = {
 	},
 
     acceptPlan : function(req,res){
-        Subscription.findById(req.body.SubscriptionID).exec(function(err, plan){
+        Subscription.find().exec(function(err, plan){
             if (err){
                 res.status(500).json({
                     "message": "Error, please try again"

@@ -1,10 +1,12 @@
 app.controller('operatorCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
 
+	$scope.a=[];
 	$scope.acceptPlan = function(){
-		dataSrv.acceptPlan()
-		.then(function(data){
-		console.log(data.data);
-		$scope.subscription = data.data;
+		dataSrv.displayProducts()
+		.then(function(res){
+		console.log(res.data);
+		$scope.a= res.data;
+		console.log("acceptplan")
 	},
 	function(err){
 		console.log(err);
@@ -17,6 +19,7 @@ app.controller('operatorCtrl', function($scope, $location, authSrv, mainSrv, dat
 		.then(function(data){
 		console.log(data.data);
 		$scope.business = data.data;
+
 	},
 	function(err){
 		console.log(err);
