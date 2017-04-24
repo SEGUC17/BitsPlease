@@ -191,8 +191,8 @@ subscriptionRequest : function(req, res){
         }
     })},
 
-    getAllProducts:function(req, res){
-        Product.findById(req.body.productID).exec(function(err, product){
+    viewProducts:function(req, res){
+        Product.find().exec(function(err, product){
 			if(err){
 				res.status(500).json({
 					"message" : "error, please try again"
@@ -201,7 +201,8 @@ subscriptionRequest : function(req, res){
 			else{
 				console.log(product);
 				res.status(200).json({
-					"message" : "success"
+					"message" : "success",
+						"data": product
 				})
 			}
 		});

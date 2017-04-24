@@ -54,7 +54,7 @@ module.exports = function(app){
 
 	app.get('/business/viewProducts', bodyParser, businessCtrl.viewProducts);
 
-	app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
+	// app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
 	
 	app.post('/business/charge',businessCtrl.charge);
 

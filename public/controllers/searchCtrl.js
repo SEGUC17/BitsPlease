@@ -1,7 +1,7 @@
 app.controller('searchCtrl', function($scope, $location, authSrv, mainSrv){
 
 	$scope.getAllProducts = function(){
-		if($scope. === undefined){
+		if($scope.keyword === undefined){
 			$scope.error = "Please enter a keyword";
 			return;
 		}
