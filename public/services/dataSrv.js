@@ -11,10 +11,6 @@
 			return $http.post('/business/postAd', ad);
 		}
 
-		var viewProductDetails = function(product){
-			return $http.post('/business/getAllProducts', product);
-		}
-
 		var displayAd = function(ad){
 			return $http.post('/operator/displayAd', ad);
 		}
@@ -60,11 +56,15 @@
 		var review = function(user){
 			return $http.post('/user/writeReview', user);
 		}
-
+		var acceptPlan = function(subscription){
+			return $http.post('/operator/acceptPlan', subscription);
+		}
+		var acceptBusiness = function(user){
+			return $http.post('/user/writeReview', user);
+		}
 		return {
 			testget: testget,
 			postAd : postAd,
-			viewProductDetails : viewProductDetails,
 			displayAd : displayAd,
 			displayProduct : displayProduct,
 			rate : rate,
@@ -76,7 +76,9 @@
 			searchUser : searchUser,
 			productreq : productreq,
 			addProduct : addProduct,
-			review : review
+			review : review,
+			acceptPlan : acceptPlan,
+			acceptBusiness : acceptBusiness
 		};
 	}
 })();

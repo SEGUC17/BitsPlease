@@ -1,9 +1,9 @@
 //create array that will hold all ordered products
 let addtocart= {
-    var shoppingCart = [];
+    //var shoppingCart = [];
 
     //this function manipulates DOM and displays content of our shopping cart
-    function displayShoppingCart(){
+    displayShoppingCart: function(){
         var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
         //ensure we delete all previously added rows from ordered products table
         while(orderedProductsTblBody.rows.length>0) {
@@ -29,10 +29,10 @@ let addtocart= {
         }
         //fill total cost of our shopping cart 
         document.getElementById("cart_total").innerHTML=cart_total_price;
-    }
+    },
 
 
-    function AddtoCart(name,description,price){
+    AddtoCart: function(name,description,price){
        //Below we create JavaScript Object that will hold three properties you have mentioned:    Name,Description and Price
        var singleProduct = {};
        //Fill the product object with data
@@ -46,4 +46,3 @@ let addtocart= {
 
     }  
   }
-  module.export= AddtoCart

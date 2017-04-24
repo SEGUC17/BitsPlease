@@ -6,7 +6,7 @@ var Rate = mongoose.model('Rate');
 
 var Review = mongoose.model('Review');
 
-var stripe = require('stripe')('sk_test_ZzM341uDW5Nx6H5pYGuMseIc');
+//var stripe = require('stripe')('sk_test_ZzM341uDW5Nx6H5pYGuMseIc');
 
 module.exports = {
 	register : function(req, res){
@@ -85,7 +85,7 @@ postRating : function(req, res){
 		});
 	},
 
-	charge: function(req,res){
+	charge : function(req,res){
     var Token = req.body.stripeToken;
     var chargeAmount = product.find();
     var charge = stripe.charges.create({

@@ -11,14 +11,12 @@ app.controller('requestCtrl', function($scope, $location, authSrv, mainSrv){
 				password : "123456",
 				description : $scope.description,
 				email : $scope.email,
-				accepted : false,
-				rejected : false
 			};
 			authSrv.request(business)
 			.then(function(data){
 				mainSrv.setBusiness(business);
 				$scope.error = "";
-				$location.url('/');
+				$location.url('/businessProfile');
 			},
 			function(err){
 				$scope.error = err.message;

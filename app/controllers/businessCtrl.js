@@ -186,13 +186,17 @@ subscriptionRequest : function(req, res){
         amount:chargeAmount.price,
         currency:"usd",
         source: Token
-    },function(err,charge){
+    },
+    function(err,charge){
         if(err && err.type === "StripeCardError"){
             console.log("stripeCardError")
         }
+
     })},
 
-    getAllProducts:function(req, res){
+    viewProducts:function(req, res){
+    	console.log("HELLO");
+				
         Product.findById(req.body.productID).exec(function(err, product){
 			if(err){
 				res.status(500).json({
@@ -200,7 +204,6 @@ subscriptionRequest : function(req, res){
 				});
 			}
 			else{
-				console.log(product);
 				res.status(200).json({
 					"message" : "success"
 				})

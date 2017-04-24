@@ -1,6 +1,6 @@
 app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
 
-	dataSrv.testget()
+	/*dataSrv.testget()
 	.then(function(data){
 		console.log(data.data);
 		$scope.arr = data.data;
@@ -14,7 +14,7 @@ app.controller('homeCtrl', function($scope, $location, authSrv, mainSrv, dataSrv
 		console.log(a.name);
 	}
 
-	$scope.flag = false;
+	$scope.flag = false;*/
 
 	$scope.login = function(){
 		var userName = $scope.userName;

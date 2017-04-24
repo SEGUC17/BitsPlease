@@ -23,7 +23,14 @@ app.factory('mainSrv', function(){
 		},
 		getAd : function(){
 			return this.ad;
+		},
+		setSubscription : function(subscription){
+			this.subscription = subscription;
+		},
+		getSubscription : function(){
+			return this.subscription;
 		}	
+	
 
 	}
 })

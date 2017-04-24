@@ -10,7 +10,7 @@ var  bodyParser = require('body-parser').json();
 
 module.exports = function(app){
 
-	app.get('/', function(req, res){
+	app.get('*', function(req, res){
 		console.log("trying to get index")
 		res.sendFile(__dirname + "/public/index.html");
 	});
@@ -53,8 +53,6 @@ module.exports = function(app){
 	app.post('/business/updateProduct', bodyParser, businessCtrl.updateProduct);
 
 	app.get('/business/viewProducts', bodyParser, businessCtrl.viewProducts);
-
-	app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
 	
 	app.post('/business/charge',businessCtrl.charge);
 

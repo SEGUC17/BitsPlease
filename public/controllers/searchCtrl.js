@@ -1,7 +1,7 @@
-app.controller('searchCtrl', function($scope, $location, authSrv, mainSrv){
+app.controller('searchCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
 
 	$scope.getAllProducts = function(){
-		if($scope. === undefined){
+		if($scope.keyword === undefined){
 			$scope.error = "Please enter a keyword";
 			return;
 		}
@@ -16,7 +16,7 @@ app.controller('searchCtrl', function($scope, $location, authSrv, mainSrv){
 				$scope.error = err.message;
 				console.log(err);
 			});
-			authSrv.getAllUsers(user)
+			dataSrv.getAllUsers(user)
 			.then(function(data){
 				mainSrv.getUser(user);
 				$scope.error = "";
@@ -26,7 +26,7 @@ app.controller('searchCtrl', function($scope, $location, authSrv, mainSrv){
 				$scope.error = err.message;
 				console.log(err);
 			});
-			authSrv.getAllBusinesses(business)
+			dataSrv.getAllBusinesses(business)
 			.then(function(data){
 				mainSrv.getBusiness(business);
 				$scope.error = "";
