@@ -5,7 +5,6 @@ app.controller('operatorCtrl', function($scope, $location, authSrv, mainSrv, dat
 		.then(function(data){
 		console.log(data.data);
 		$scope.subscription = data.data;
-		console.log("accept plN");
 	},
 	function(err){
 		console.log(err);

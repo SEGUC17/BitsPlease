@@ -51,6 +51,12 @@
 		var searchBusiness = function(bsuiness){
 			return $http.get('/home/getAllBusinesses', product);
 		}
+		var plan = function(bsuiness){
+			return $http.get('/business/subscriptionRequest', subscription);
+		}
+		var review = function(bsuiness){
+			return $http.get('/user/writeReview', subscription);
+		}
 
 		return {
 			testget: testget,
@@ -64,7 +70,9 @@
             subscriptionPayment: subscriptionPayment,
             searchProduct : searchProduct,
 			searchBusiness : searchBusiness,
-			searchUser : searchUser
+			searchUser : searchUser,
+			plan : plan,
+			review : review
 		};
 	}
 })();

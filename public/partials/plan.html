@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<h2>Plan Request</h2>
+		<div class="col s12">
+			<input type="text" ng-model="planName" placeholder="plan name" />
+		</div>
+		<div class="col s6">
+			<input type="text" ng-model="description" placeholder="description" />
+		</div>
+		<div class="col s6">
+			<input type="text" ng-model="price" placeholder="price" />
+		</div>
+		<div class="col s6">
+			<input type="text" ng-model="duration" placeholder="duration" />
+		</div>
+		<div class="col s6">
+			<input type="text" ng-model="business" placeholder="business" />
+		</div>
+	</div>
+	<div class="row">
+		<button class="btn waves-effect waves-light" ng-click="plan()">Submit</button>
+		<p class="red-text" ng-bind="error"></p>
+	</div>
+</div>

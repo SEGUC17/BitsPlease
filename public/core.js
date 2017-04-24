@@ -50,5 +50,25 @@ app.config(function($routeProvider){
 	.when('/search', {
 		templateUrl : 'partials/search.html',
 		controller : 'searchCtrl'
+	})
+	.when('/cart', {
+		templateUrl : 'partials/cart.html',
+		controller : 'cartCtrl'
+	})
+	.when('/review', {
+		templateUrl : 'partials/review.html',
+		controller : 'reviewCtrl'
+	})
+	.when('/productRequest', {
+		templateUrl : 'partials/productreqCtrl.html',
+		controller : 'productreqCtrl'
+	})
+	.when('/BProfile', {
+		templateUrl : 'partials/businessProfile.html',
+		controller : 'businessProfileCtrl'
+	})
+	.when('/plan', {
+		templateUrl : 'partials/plan.html',
+		controller : 'planCtrl'
 	});	
 });
