@@ -12,7 +12,7 @@ module.exports = function(app){
 
 	app.get('/', function(req, res){
 		console.log("trying to get index")
-		res.sendFile(__dirname + "/public/index.html")
+		res.sendFile(__dirname + "../../public/index.html")
 	});
 
 	app.get('/test/:name', businessCtrl.test);
@@ -53,27 +53,52 @@ module.exports = function(app){
 	app.post('/business/updateProduct', bodyParser, businessCtrl.updateProduct);
 
 	app.get('/business/viewProducts', bodyParser, businessCtrl.viewProducts);
-
-	// app.post('/business/getAllProducts', bodyParser, businessCtrl.getAllProducts);
 	
-	app.post('/business/charge',businessCtrl.charge);
+	app.post('/business/charge', businessCtrl.charge);
+
+	app.post('/business/subscriptionRequest', businessCtrl.subscriptionRequest);
 
 
 	//OPERATOR
-    app.post('/operator/acceptBusiness', operatorCtrl.acceptBusiness);
+    app.post('/operator/acceptBusiness', function (req , res) {
+			operatorCtrl.acceptBusiness(req,function(msg){
+					res.send(msg);
+			})
+	});
 
-	app.post('/operator/displayAd', operatorCtrl.displayAd);
 
-	app.post('/operator/deleteNonDisplayedAds', operatorCtrl.deleteNonDisplayedAds);
+	app.post('/operator/displayAd', function (req , res) {
+			operatorCtrl.displayAd(req,function(msg){
+					res.send(msg);
+			})
+	});
 
-	app.post('/operator/acceptPlan', operatorCtrl.acceptPlan);
 
-	app.post('/operator/addProduct', operatorCtrl.addProduct);
+	app.post('/operator/deleteNonDisplayedAds', function (req , res) {
+			operatorCtrl.deleteNonDisplayedAds(req,function(msg){
+					res.send(msg);
+			})
+	});
+
+
+	app.post('/operator/acceptPlan', function (req , res) {
+			operatorCtrl.acceptPlan(req,function(msg){
+					res.send(msg);
+			})
+	});
+
+
+	app.post('/operator/addProduct', function (req , res) {
+			operatorCtrl.addProduct(req,function(msg){
+					res.send(msg);
+			})
+	});
+
 
 
 
 	//HOME
-	app.post('/home/getAllProducts', homeCtrl.getAllProducts);
+	app.get('/home/getAllProducts', homeCtrl.getAllProducts);
 
 	app.get('/home/getAllUsers', homeCtrl.getAllUsers);
 

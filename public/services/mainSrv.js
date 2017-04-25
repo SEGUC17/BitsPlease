@@ -23,6 +23,12 @@ app.factory('mainSrv', function(){
 		},
 		getAd : function(){
 			return this.ad;
+		},
+		setSubscription : function(plan){
+			this.plan = plan;
+		},
+		getSubscruption : function(){
+			return this.plan;
 		}	
 	}
 })

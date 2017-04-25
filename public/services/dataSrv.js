@@ -3,76 +3,110 @@
 	dataSrv.$inject = ['$http'];
 	function dataSrv($http){
 
-		var testget = function(){
-			return $http.get('/testget');
+		var rate = function(product){
+			return $http.post('/user/postRating', product);
+		}
+
+		var review = function(bsuiness){
+			return $http.get('/user/writeReview', subscription);
+		}
+
+		var buy = function(product){
+			return $http.post('/user/charge', product);
 		}
 
 		var postAd = function(ad){
 			return $http.post('/business/postAd', ad);
 		}
 
-		var viewProductDetails = function(product){
-			return $http.post('/business/getAllProducts', product);
+		var productRequest = function(product){
+			return $http.post('/business/productRequest', product);
 		}
 
-		var displayAd = function(ad){
-			return $http.post('/operator/displayAd', ad);
+		var update = function(product){
+			return $http.post('/business/updateProduct', product);
 		}
 
 		var displayProduct = function(){
 			return $http.get('/business/viewProducts');
 		}
 
-		var productRequest = function(product){
-			return $http.post('/business/productRequest', product);
-		}
-
-		var rate = function(product){
-			return $http.post('/user/postRating', product);
-		}
-
-		var update = function(product){
-			return $http.post('/business/updateProduct', product);
-		}
-		var buy = function(product){
-			return $http.post('/user/charge', product);
-		}
-
 		var subscriptionPayment = function(subscription){
 			return $http.post('/business/charge', subscription);
+		}
+
+		var plan = function(bsuiness){
+			return $http.get('/business/subscriptionRequest', subscription);
+		}
+
+		var acceptBusiness = function(ad){
+			var body = {
+				"compnayName": companyName
+			}
+			return $http.post('/operator/acceptBusiness', body);
+		}
+
+		var displayAd = function(ad){
+			var body = {
+				"title": title
+			}
+			return $http.post('/operator/displayAd', body);
+		}
+
+		var deleteAd = function(ad){
+			var body = {
+				"title": title
+			}
+			return $http.post('/operator/deleteNonDisplayedAd', body);
+		}
+
+		var acceptPlan = function(subscription){
+			var body = {
+				"planName": planName
+			}
+			return $http.post('/operator/acceptPlan', body);
+		}
+
+		var addProduct = function(Name){
+			var body = {
+				"productName": Name
+			}
+			return $http.post('/operator/addProduct', body);
 		}
 
 		var searchProduct = function(product){
 			return $http.get('/home/getAllProducts', product);
 		}
+
 		var searchUser = function(user){
 			return $http.get('/home/getAllUsers', product);
 		}
+
 		var searchBusiness = function(bsuiness){
 			return $http.get('/home/getAllBusinesses', product);
 		}
-		var plan = function(bsuiness){
-			return $http.get('/business/subscriptionRequest', subscription);
-		}
-		var review = function(bsuiness){
-			return $http.get('/user/writeReview', subscription);
-		}
 
 		return {
-			testget: testget,
-			postAd : postAd,
-			viewProductDetails : viewProductDetails,
-			displayAd : displayAd,
-			displayProduct : displayProduct,
+
 			rate : rate,
+			review : review,
+			buy : buy,
+			postAd : postAd,
+			productRequest : productRequest,
 			update : update,
-            buy : buy,
-            subscriptionPayment: subscriptionPayment,
-            searchProduct : searchProduct,
-			searchBusiness : searchBusiness,
-			searchUser : searchUser,
+			displayProduct : displayProduct,
+			subscriptionPayment: subscriptionPayment,
 			plan : plan,
-			review : review
+			acceptBusiness : acceptBusiness,
+			displayAd : displayAd,
+			deleteAd : deleteAd,
+			acceptPlan : acceptPlan,
+			addProduct : addProduct,
+			searchProduct : searchProduct,
+			searchUser : searchUser,
+			searchBusiness : searchBusiness	
+			
+			
 		};
 	}
 })();

@@ -6,59 +6,60 @@ var Advertisement = mongoose.model('Advertisement');
 
 var Product = mongoose.model('Product');
 
+var Subscription = mongoose.model('Subscription');
+
+var bodyParser = require('body-parser').json();
+
 module.exports = {
 
 	acceptBusiness : function(req, res){
 		// SECURITY NEEDED HERE 
-		Business.findById(req.body.businessId).exec(function(err, business){
+		Business.findOne({'companyName':req.body.companyName} ,function(err, business){
 			if(err){
-				res.status(500).json({
-					"message" : "Error, please try again"
-				});
+				cb("Server may be down"); 	
 			}
-			if(business){
+			if(product){
 				business.accepted = true;
 				business.rejected = false;
 				business.save(function(err){
-					if(err){
-						res.status(500).json({
-						"message" : "Error, please try again"
-						});
+					//console.log("err  cpns")
+					//console.log(err)
+					if(!err){
+						 cb("Business added");
+						return;		
 					}
 					else{
-						res.status(200).json({
-							"message" : "Business accepted"
-						});
+						
+						cb("Error, please try again; Server may be down")
 					}
 				});
-			}
+			return ;} cb("Error, no such business exists")
 		});
+       
 	},
 
 	displayAd : function(req, res){
 		// SECURITY 
-		Advertisement.findById(req.body.adID).exec(function(err, ad){
+		Advertisement.findOne({'title':req.body.title} ,function(err, ad){
 			if(err){
-				res.status(500).json({
-					"message" : "Error please try again"
-				});
-
+				cb("Server may be down"); 	
 			}
 			if(ad){
-				ad.displayed = true;
+				ad.accepted = true;
+				ad.rejected = false;
 				ad.save(function(err){
-					if(err){
-						res.status(500).json({
-						"message" : "Error, please try again"
-						});
+					//console.log("err  cpns")
+					//console.log(err)
+					if(!err){
+						 cb("Ad added");
+						return;		
 					}
-					else {
-						res.status(200).json({
-							"message" : "Ad displayed"
-						});
+					else{
+						
+						cb("Error, please try again; Server may be down")
 					}
 				});
-			}
+			return ;} cb("Error, no such ad exists")
 		});
 	},
 
@@ -78,56 +79,52 @@ module.exports = {
 	},
 
     acceptPlan : function(req,res){
-        Subscription.findById(req.body.SubscriptionID).exec(function(err, plan){
-            if (err){
-                res.status(500).json({
-                    "message": "Error, please try again"
-                });
-            }
-            if (plan){
-                plan.accepted = true;
-                plan.rejected = false;
-                plan.save(function(err){
-                    if(err){
-                        res.status(500).json({
-                            "message": "Error,please try again"
-                        });
-                    }
-                    else{
-                        res.status(200).json({
-                            "message": "Subscription plan accepted"
-                        });
-                    }
-                });
-            }
-        });
+        Subscription.findOne({'planName':req.body.planName} ,function(err, subscription){
+			if(err){
+				cb("Server may be down"); 	
+			}
+			if(subscription){
+				subscription.accepted = true;
+				subscription.rejected = false;
+				subscription.save(function(err){
+					//console.log("err  cpns")
+					//console.log(err)
+					if(!err){
+						 cb("Subscription added");
+						return;		
+					}
+					else{
+						
+						cb("Error, please try again; Server may be down")
+					}
+				});
+			return ;} cb("Error, no such plan exists")
+		});
     },
 
-    addProduct : function (req, res){
-    	Product.findById(req.body.productId).exec(function(err, product){
+    addProduct : function (req, cb){
+    	Product.findOne({'productName':req.body.productName} ,function(err, product){
 			if(err){
-				res.status(500).json({
-					"message" : "Error, please try again"
-				});
+				cb("Server may be down"); 	
 			}
 			if(product){
 				product.accepted = true;
 				product.rejected = false;
 				product.save(function(err){
-					if(err){
-						res.status(500).json({
-						"message" : "Error, please try again"
-						});
+					//console.log("err  cpns")
+					//console.log(err)
+					if(!err){
+						 cb("Product added");
+						return;		
 					}
 					else{
-						res.status(200).json({
-							"message" : "Product added"
-						});
+						
+						cb("Error, please try again; Server may be down")
 					}
 				});
-			}
+			return ;} cb("Error, no such product exists")
 		});
        
-},
+}
 
 }

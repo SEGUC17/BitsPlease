@@ -1,8 +1,10 @@
 app.controller('businessProfileCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
+	$scope.business = mainSrv.getBusiness();
+	console.log($scope.business);
 
 
 	$scope.goToProduct = function(){
-		$location.url('/productPetition');
+		$location.url('/productRequest');
 	}
 
 	$scope.goToAd = function(){

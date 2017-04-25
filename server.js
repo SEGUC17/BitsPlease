@@ -12,7 +12,9 @@ var rate = require('./app/models/rate');
 
 var review = require('./app/models/review');
 
-var subscription = require('./app/models/subscription')
+var subscription = require('./app/models/subscription');
+
+var stripe = require('stripe')('sk_test_ZzM341uDW5Nx6H5pYGuMseIc');
 
 var app = require('./app/app');
 

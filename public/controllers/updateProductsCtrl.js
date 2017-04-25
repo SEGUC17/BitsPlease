@@ -1,22 +1,23 @@
-app.controller('updateProductsCtrl', function($scope, $location, authSrv, mainSrv){
+app.controller('updateProductsCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
 
 	$scope.update = function(){
-		if($scope.companyName === undefined){
-			$scope.error = "Please enter your company name";
+		if($scope.productName === undefined){
+			$scope.error = "Please enter your product name";
 			return;
 		}
 		else{
-			var business = {
-				companyName : $scope.companyName,
-				password : $scope.password,
+			var product = {
+				productName : $scope.productName,
+				picture : $scope.picture,
 				description : $scope.discription,
-				email : $scope.email
+				price : $scope.price,
+				quantity : $scope.quantity
 			};
-			authSrv.request(business)
+			dataSrv.update(product)
 			.then(function(data){
 				mainSrv.setBusiness(business);
 				$scope.error = "";
-				$location.url('/home');
+				$location.url('/BProfile');
 			},
 			function(err){
 				$scope.error = err.message;

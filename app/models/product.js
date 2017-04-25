@@ -16,6 +16,8 @@ var productSchema = new mongoose.Schema({
 		required : true
 	},
 	picture : String,
+	quantity : Number,
+	email : String,
 	//business : mongoose.Schema.ObjectId
 	accepted : Boolean,
 	rejected : Boolean
