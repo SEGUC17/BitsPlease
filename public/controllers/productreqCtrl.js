@@ -1,4 +1,4 @@
-app.controller('productreqCtrl', function($scope, $location, authSrv, mainSrv){
+app.controller('productreqCtrl', function($scope, $location, authSrv, mainSrv, dataSrv){
 $scope.productreq = function(){	
 if($scope.productName === undefined){
 			$scope.error = "Please enter a product name";
@@ -13,11 +13,11 @@ if($scope.productName === undefined){
 				accepted : false,
 				rejected : false
 			};
-			dataSrv.productreq(product)
+			dataSrv.productRequest(product)
 			.then(function(data){
 				mainSrv.setProduct(product);
 				$scope.error = "";
-				$location.url('/home');
+				$location.url('/BProfile');
 			},
 			function(err){
 				$scope.error = err.message;

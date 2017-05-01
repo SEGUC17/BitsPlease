@@ -29,6 +29,12 @@ app.factory('mainSrv', function(){
 		},
 		getSubscruption : function(){
 			return this.plan;
+		},
+		setRating : function(rate){
+			this.rate = rate;
+		},
+		getRating : function(){
+			return this.rate;
 		}	
 	}
 })

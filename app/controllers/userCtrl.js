@@ -66,7 +66,7 @@ postRating : function(req, res){
 		var rate = new Rate();
 		rate.userName = req.body.userName;
 		rate.userID = req.body.userID;
-		rate.rating = req.body.rateing;
+		rate.rating = req.body.rating;
 		rate.productName = req.body.productName;
 		rate.productID = req.body.productID;
 		rate.firstName = req.body.firstName;
